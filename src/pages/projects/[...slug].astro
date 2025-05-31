@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import ProjectHeader from "../../components/Projects/ProjectHeader.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import MdLayout from "../../layouts/MdLayout.astro";
+import { getProjects } from "../../lib/utils";
+import SimilarProjects from "../../components/Projects/SimilarProjects.astro";
+import ProjectBar from "../../components/Projects/ProjectBar.astro";
+import { metadata } from "../../lib/constants";
+
+export async function getStaticPaths() {
+	const projects = getProjects();
+	if (!projects) {
+		return [];
+	}
+	return projects.map((project) => ({
+		params: { slug: project.id },
+		props: project,
+	}));
+}
+type Props = CollectionEntry<"projects">;
+
+const project = Astro.props;
+
+const PAGE_TITLE = `${project.data.title} - Projects - ${metadata.title}`;
+const { Content, headings } = await render(project);
+---
+
+<MainLayout image={project.data.cover.src} title={PAGE_TITLE}>
+	<section class="relative flex flex-col gap-4">
+		<ProjectHeader project={project} />
+		<MdLayout headings={headings} backTo="/projects">
+			<Content />
+		</MdLayout>
+		<SimilarProjects project={project} />
+
+		{project.data.link ? <ProjectBar project={project} /> : null}
+	</section>
+</MainLayout>

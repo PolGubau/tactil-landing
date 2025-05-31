@@ -1,0 +1,20 @@
+---
+import { metadata } from "../../lib/constants";
+import LinkedinIcon from "../icons/LinkedinIcon.astro";
+import GithubIcon from "../icons/GithubIcon.astro";
+import SocialLink from "./SocialLink.astro";
+import EmailIcon from "../icons/EmailIcon.astro";
+---
+
+<div class="flex flex-wrap justify-center gap-2 md:justify-start">
+  <SocialLink href={metadata.links.linkedin} label="Linkedin">
+    <LinkedinIcon slot="icon" />
+  </SocialLink>
+
+  <SocialLink href={metadata.links.github} label="Github">
+    <GithubIcon slot="icon" />
+  </SocialLink>
+  <SocialLink href={metadata.links.email} label="Email">
+    <EmailIcon slot="icon" />
+  </SocialLink>
+</div>

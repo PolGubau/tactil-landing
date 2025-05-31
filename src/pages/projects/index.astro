@@ -1,0 +1,14 @@
+---
+import ProjectsList from "../../components/Projects/ProjectList/ProjectsList.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { projects } from "../../lib/utils";
+---
+
+<MainLayout>
+	<h1
+		class="mb-8 text-pretty text-center font-medium text-xl md:text-start md:font-semibold md:text-2xl"
+	>
+		Discover my recent Projects 🚀
+	</h1>
+	<ProjectsList projects={projects} />
+</MainLayout>

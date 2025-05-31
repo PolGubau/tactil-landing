@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import exampleAnimated from "../../assets/media/other/example-animated.webp";
+import exampleBlog from "../../assets/media/other/example-codedByPol.webp";
+import exampleFlags from "../../assets/media/other/example-flags.webp";
+import examplePortfolio from "../../assets/media/other/example-portfolio.webp";
+---
+
+<section id="cards">
+  <ul class="sticked-cards">
+    <li class="card" id="card_1">
+      <Image
+        alt="A preview of the performance stats in my technical blog"
+        src={exampleAnimated}
+        decoding="async"
+        loading="lazy"
+        width={850}
+        height={600}
+      />
+    </li>
+    <li class="card" id="card_2">
+      <Image
+        alt="A preview of the performance stats in my portfolio"
+        src={examplePortfolio}
+        decoding="async"
+        loading="lazy"
+        width={850}
+        height={600}
+      />
+    </li>
+    <li class="card" id="card_3">
+      <Image
+        alt="A preview of the performance stats in my technical blog"
+        src={exampleBlog}
+        decoding="async"
+        loading="lazy"
+        width={850}
+        height={600}
+      />
+    </li>
+    <li id="card_4" class="card">
+      <Image
+        alt="A preview of the performance stats in my technical blog"
+        src={exampleFlags}
+        decoding="async"
+        loading="lazy"
+        width={850}
+        height={600}
+      />
+    </li>
+  </ul>
+</section>
