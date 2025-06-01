@@ -39,17 +39,19 @@
 /* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
 
 @theme {
-  --color-primary-50: #fff5f5;
-  --color-primary-100: #ffe3e3;
-  --color-primary-200: #ffbdbf;
-  --color-primary-300: #ff999a;
-  --color-primary-400: #ff5a5f;
-  --color-primary-500: #e64f54;
-  --color-primary-600: #c94447;
-  --color-primary-700: #a2373a;
-  --color-primary-800: #7d2a2e;
-  --color-primary-900: #5e2022;
-  --color-primary-950: #3a1012;
+  --color-primary-50:  #f7ffe5;
+  --color-primary-100: #edffb8;
+  --color-primary-200: #e1ff80;
+  --color-primary-300: #d4ff33;
+  --color-primary-400: #c8ff00;
+  --color-primary-500: #b4e600;
+  --color-primary-600: #92b800;
+  --color-primary-700: #738f00;
+  --color-primary-800: #566900;
+  --color-primary-900: #3d4a00;
+  --color-primary-950: #262e00;
+  
+
 
 
   --color-secondary-50: #f7f7f7;
@@ -96,7 +98,7 @@ h6 {
 }
 
 body {
-  @apply bg-background text-foreground antialiased font-body;
+  @apply bg-background text-foreground antialiased font-heading;
 }
 
 *::selection {
@@ -106,7 +108,7 @@ body {
  
 body {
   timeline-scope: --scroll;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 main {
@@ -114,7 +116,7 @@ main {
 }
 p{
   font-weight: 400;
-}
+ }
 strong {
   font-weight: 900;
 }

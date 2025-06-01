@@ -1,19 +1,9 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { getProjects } from "../lib/utils";
-
-import coiae from "../assets/media/other/coiae.png";
-
-import gymZ from "../assets/media/other/gymZ.png";
-import santJordi from "../assets/media/other/santJordi.png";
 
 import Bento from "../components/Bento/Bento.astro";
 import Hero from "../components/Layout/hero.astro";
 import StickyImages from "../components/sticky-images/sticky-images.astro";
-
-const imagesPhones = [coiae, gymZ, santJordi];
-
-const firstProjects = getProjects(4);
 ---
 
 <MainLayout>
@@ -25,11 +15,21 @@ const firstProjects = getProjects(4);
       <StickyImages />
     </section>
 
-    <section class="flex flex-col items-center gap-y-64">
-      <div class="max-w-6xl p-5 w-full">
+    <section class="flex flex-col items-center">
+      <div class="max-w-screen-xl p-5 w-full">
         <Bento />
       </div>
     </section>
+    <!-- <section class="flex flex-col items-center">
+      <div class="max-w-screen-xl p-5 w-full">
+        <Pricing />
+      </div>
+    </section>
+    <section class="flex flex-col items-center">
+      <div class="max-w-screen-xl p-5 w-full">
+        <ContactForm client:load />
+      </div>
+    </section> -->
 
     <!-- <section
       class="flex flex-col items-center gap-5 bg-foreground text-background min-h-screen"
@@ -65,9 +65,5 @@ const firstProjects = getProjects(4);
       </div>
       <ProjectsList projects={firstProjects} />
     </section> -->
-
-    <footer class="text-center p-4">
-      Aquí saldrán los proyectos, precios y contacto...
-    </footer>
   </main>
 </MainLayout>

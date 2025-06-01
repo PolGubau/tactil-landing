@@ -2,62 +2,67 @@
 import Header from "./header/header.astro";
 ---
 
-<article class="flex flex-col gap-6 px-6 pb-10 font-medium text-xl">
+<article class="flex flex-col gap-10 px-6 pb-10 font-medium">
   <strong class="delayed-appearing">Tactil</strong>
   <Header />
 
   <div class="flex flex-col gap-6 delayed-appearing">
-    <p>
+    <p class="md:max-w-screen-sm">
       Estudio de <strong> diseño </strong> y desarrollo <strong> web </strong> a
       medida, centrado en experiencias digitales elegantes, rápidas y escalables.
     </p>
 
-    <div class="gap-2 flex max-md:flex-col">
+    <div class="gap-2 flex">
       <a
-        href="#contact"
-        class="hover:bg-primary-700 transition-colors cursor-pointer bg-primary font-semibold rounded-xl p-2 px-6 text-2xl text-background select-none text-center"
-        >Hablemos</a
+        href="https://forms.gle/J5xpGDUCiVSRS8Pc7"
+        target="_blank"
+        rel="noopener noreferrer"
+        id="contact-button"
+        class="group cursor-pointer font-semibold rounded-xl md:text-2xl select-none text-center underline decoration-2 decoration-primary underline-offset-2"
       >
-      <a
-        href="#pricing"
-        class="hover:border-primary-700 border transition-colors cursor-pointer text-primary border-primary font-semibold rounded-xl p-2 px-6 text-xl text-background select-none text-center"
-        >Ver planes</a
-      >
+        Pedir presupuesto
+
+        <span
+          class="opacity-0 w-0 group-hover:w-4 h-4 translate-x-0 group-hover:translate-x-4 group-hover:opacity-100 transition-all"
+        >
+          →
+        </span>
+      </a>
     </div>
   </div>
-</article>
 
-<style>
-  /* when scroll, it looses opacity */
+  <style>
+    /* when scroll, it looses opacity */
 
-  @keyframes opacity-fade {
-    from {
-      opacity: 1;
+    @keyframes opacity-fade {
+      from {
+        opacity: 1;
+      }
+      to {
+        transform: translateY(20px);
+        opacity: 0;
+        filter: blur(2px);
+      }
     }
-    to {
-      transform: translateY(20px);
+
+    .delayed-appearing {
       opacity: 0;
-      filter: blur(2px);
+      animation: fade-in 0.5s ease-in-out;
+      animation-delay: 2.5s;
+      animation-fill-mode: forwards;
     }
-  }
+    article {
+      /* Create View Timeline */
+      view-timeline-name: --revealing-image;
+      view-timeline-axis: block;
 
-  .delayed-appearing {
-    opacity: 0;
-    animation: fade-in 0.5s ease-in-out;
-    animation-delay: 2.5s;
-    animation-fill-mode: forwards;
-  }
-  article {
-    /* Create View Timeline */
-    view-timeline-name: --revealing-image;
-    view-timeline-axis: block;
+      /* Attach animation, linked to the  View Timeline */
+      animation: linear opacity-fade both;
+      animation-timeline: --revealing-image;
 
-    /* Attach animation, linked to the  View Timeline */
-    animation: linear opacity-fade both;
-    animation-timeline: --revealing-image;
-
-    /* Tweak range when effect should run*/
-    /* only on exit */
-    animation-range: cover 30% cover 40%;
-  }
-</style>
+      /* Tweak range when effect should run*/
+      /* only on exit */
+      animation-range: cover 25% cover 30%;
+    }
+  </style>
+</article>

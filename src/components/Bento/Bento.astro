@@ -19,36 +19,45 @@ import BentoItem from "./BentoItem.astro";
     title="Páginas y aplicaciones web"
   >
     <p slot="description">
-      Somos <strong>expertos</strong> creando, manteniendo y mejorando experiencias
-      web. Con confianza desde el prototipo hasta el <strong
-        >lanzamiento.</strong
-      >
+      Creamos <strong>webs y apps</strong> a medida, sin plantillas, desde el concepto
+      hasta el <strong>lanzamiento</strong>. Código limpio, animaciones finas y
+      resultados medibles.
     </p>
   </BentoItem>
+
   <BentoItem
     className="md:col-span-3 md:row-span-2 md:col-start-3"
-    title="Usuario en el centro"
+    title="El usuario, en el centro"
   >
-    <p slot="description">
-      Nos enfocamos en el <strong>usuario</strong> y su experiencia, creando interfaces
-      intuitivas, modernas y <strong>atractivas.</strong>
-    </p>
+    <div slot="description">
+      <p>
+        Interfaces pensadas desde la experiencia: <strong
+          >claras, intuitivas y atractivas</strong
+        >.
+      </p>
+      <p>
+        Optimizamos sin sacrificar diseño. Cada pantalla fluye, responde y <strong
+          >conecta</strong
+        >.
+      </p>
+    </div>
   </BentoItem>
+
   <BentoItem
-    className="md:col-span-3 md:row-start-3 bg-gradient-to-tr from-rose-400 to-red-500"
+    className="md:col-span-3 md:row-start-3 bg-gradient-to-tr from-primary to-primary-300"
     title="Aparece en internet"
   >
     <div slot="description" class="flex flex-col gap-2">
       <p>
-        Te haremos aparecer en internet de manera efectiva usando buena
-        arquitectura y prácticas modernas. Sin <strong>SEO</strong> de humo.
+        Arquitectura bien pensada, código optimizado y buenas prácticas de
+        accesibilidad y SEO técnico.
       </p>
-
       <p>
-        <span class="text-3xl font-bold"> 42.526 </span>
-        <span
-          >usuarios han descubierto a nuestros clientes a través de Google.</span
-        >
+        <strong>Sin humo.</strong> Solo resultados reales.
+      </p>
+      <p>
+        <span class="text-3xl font-bold">42.526</span> personas encontraron a nuestros
+        clientes por Google.
       </p>
     </div>
   </BentoItem>
@@ -57,20 +66,23 @@ import BentoItem from "./BentoItem.astro";
     className="md:col-span-3 md:col-start-1 md:row-start-4"
     title="Logo y creación de marca"
   >
-    <p slot="description">
-      Creamos <strong>identidades visuales</strong> únicas y memorables, que reflejan
-      la esencia de tu marca y te hacen <strong>
-        destacar en el mercado.
-      </strong>
-    </p>
+    <div slot="description" class="grid grid-cols-[2fr_1fr] gap-2">
+      <p>
+        Diseñamos <strong>identidades visuales</strong> con intención, que cuentan
+        tu historia y te hacen <strong>diferente</strong>.
+      </p>
+    </div>
   </BentoItem>
+
   <BentoItem
     className="md:col-span-2 md:row-span-2 md:col-start-4 md:row-start-3"
-    title="Usuario en el centro"
+    title="Confianza y proceso claro"
   >
     <p slot="description">
-      Nos enfocamos en el <strong>usuario</strong> y su experiencia, creando interfaces
-      intuitivas, modernas y <strong>atractivas.</strong>
+      Te guiamos con transparencia, entregando en tiempos pactados y con
+      entregables claros.
+      <strong>Sin sustos. Sin humos. Sin promesas vacías.</strong> Solo trabajo bien
+      hecho y comunicación constante.
     </p>
   </BentoItem>
 </div>
