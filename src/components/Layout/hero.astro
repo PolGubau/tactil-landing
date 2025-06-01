@@ -2,27 +2,62 @@
 import Header from "./header/header.astro";
 ---
 
-<article
-  class="flex flex-col gap-8 px-6 pb-10 min-h-[80vh] font-medium text-xl"
->
-  <strong class="opacity-60">Tactil</strong>
+<article class="flex flex-col gap-6 px-6 pb-10 font-medium text-xl">
+  <strong class="delayed-appearing">Tactil</strong>
   <Header />
-  <p class="font-medium text-2xl">
-    Estudio de <strong> diseño </strong> y desarrollo <strong> web </strong> a medida,
-    centrado en experiencias digitales elegantes, rápidas y escalables.
-  </p>
-  <p>Si tu marca es única, tu web también debería serlo.</p>
 
-  <div class="flex flex-col gap-2">
-    <a
-      href="#contact"
-      class="hover:bg-primary-700 transition-colors cursor-pointer bg-primary font-semibold rounded-xl p-2 text-2xl text-background select-none text-center"
-      >Hablemos</a
-    >
-    <a
-      href="#pricing"
-      class="hover:border-primary-700 border transition-colors cursor-pointer text-primary border-primary font-semibold rounded-xl p-2 text-xl text-background select-none text-center"
-      >Ver planes</a
-    >
+  <div class="flex flex-col gap-6 delayed-appearing">
+    <p>
+      Estudio de <strong> diseño </strong> y desarrollo <strong> web </strong> a
+      medida, centrado en experiencias digitales elegantes, rápidas y escalables.
+    </p>
+
+    <div class="gap-2 flex max-md:flex-col">
+      <a
+        href="#contact"
+        class="hover:bg-primary-700 transition-colors cursor-pointer bg-primary font-semibold rounded-xl p-2 px-6 text-2xl text-background select-none text-center"
+        >Hablemos</a
+      >
+      <a
+        href="#pricing"
+        class="hover:border-primary-700 border transition-colors cursor-pointer text-primary border-primary font-semibold rounded-xl p-2 px-6 text-xl text-background select-none text-center"
+        >Ver planes</a
+      >
+    </div>
   </div>
 </article>
+
+<style>
+  /* when scroll, it looses opacity */
+
+  @keyframes opacity-fade {
+    from {
+      opacity: 1;
+    }
+    to {
+      transform: translateY(20px);
+      opacity: 0;
+      filter: blur(2px);
+    }
+  }
+
+  .delayed-appearing {
+    opacity: 0;
+    animation: fade-in 0.5s ease-in-out;
+    animation-delay: 3.5s;
+    animation-fill-mode: forwards;
+  }
+  article {
+    /* Create View Timeline */
+    view-timeline-name: --revealing-image;
+    view-timeline-axis: block;
+
+    /* Attach animation, linked to the  View Timeline */
+    animation: linear opacity-fade both;
+    animation-timeline: --revealing-image;
+
+    /* Tweak range when effect should run*/
+    /* only on exit */
+    animation-range: cover 30% cover 40%;
+  }
+</style>

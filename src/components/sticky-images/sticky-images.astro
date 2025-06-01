@@ -4,49 +4,76 @@ import exampleAnimated from "../../assets/media/other/example-animated.webp";
 import exampleBlog from "../../assets/media/other/example-codedByPol.webp";
 import exampleFlags from "../../assets/media/other/example-flags.webp";
 import examplePortfolio from "../../assets/media/other/example-portfolio.webp";
+import "./cards.css";
 ---
 
 <section id="cards">
-  <ul class="sticked-cards">
-    <li class="card" id="card_1">
-      <Image
-        alt="A preview of the performance stats in my technical blog"
-        src={exampleAnimated}
-        decoding="async"
-        loading="lazy"
-        width={850}
-        height={600}
-      />
-    </li>
-    <li class="card" id="card_2">
-      <Image
-        alt="A preview of the performance stats in my portfolio"
-        src={examplePortfolio}
-        decoding="async"
-        loading="lazy"
-        width={850}
-        height={600}
-      />
-    </li>
-    <li class="card" id="card_3">
-      <Image
-        alt="A preview of the performance stats in my technical blog"
-        src={exampleBlog}
-        decoding="async"
-        loading="lazy"
-        width={850}
-        height={600}
-      />
-    </li>
-    <li id="card_4" class="card">
-      <Image
-        alt="A preview of the performance stats in my technical blog"
-        src={exampleFlags}
-        decoding="async"
-        loading="lazy"
-        width={850}
-        height={600}
-      />
-    </li>
-  </ul>
+  <div class="cards-container">
+    <ul class="sticked-cards">
+      <li class="card" id="card_1">
+        <Image
+          alt="A preview of the performance stats in my technical blog"
+          src={exampleAnimated}
+          decoding="async"
+          loading="lazy"
+          width={850}
+          height={600}
+        />
+      </li>
+      <li class="card" id="card_2">
+        <Image
+          alt="A preview of the performance stats in my portfolio"
+          src={examplePortfolio}
+          decoding="async"
+          loading="lazy"
+          width={850}
+          height={600}
+        />
+      </li>
+      <li class="card" id="card_3">
+        <Image
+          alt="A preview of the performance stats in my technical blog"
+          src={exampleBlog}
+          decoding="async"
+          loading="lazy"
+          width={850}
+          height={600}
+        />
+      </li>
+      <li id="card_4" class="card">
+        <Image
+          alt="A preview of the performance stats in my technical blog"
+          src={exampleFlags}
+          decoding="async"
+          loading="lazy"
+          width={850}
+          height={600}
+        />
+      </li>
+    </ul>
+  </div>
 </section>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .cards-container {
+    /* Create View Timeline */
+    view-timeline-name: --revealing-images;
+    view-timeline-axis: block;
+
+    /* Attach animation, linked to the  View Timeline */
+    animation: linear fade-in both;
+    animation-timeline: --revealing-images;
+
+    /* Tweak range when effect should run*/
+    animation-range: normal 25%;
+  }
+</style>

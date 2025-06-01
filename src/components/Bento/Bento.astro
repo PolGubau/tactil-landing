@@ -1,0 +1,54 @@
+---
+import BentoItem from "./BentoItem.astro";
+---
+
+<div class="relative grid grid-cols-1 md:grid-cols-5 md:grid-rows-4 gap-4">
+  <div
+    class="absolute blur-3xl opacity-70 -z-10 w-48 h-48 left-[50%] bg-gradient-to-br from-primary"
+  >
+  </div>
+  <BentoItem
+    className="md:col-span-2 md:row-span-2 bg-foreground text-background"
+    title="Páginas y aplicaciones web"
+  >
+    <p slot="description">
+      Somos <strong>expertos</strong> creando, manteniendo y mejorando experiencias
+      web. Con confianza desde el prototipo hasta el lanzamiento.
+    </p>
+  </BentoItem>
+  <BentoItem
+    className="md:col-span-3 md:row-span-2 md:col-start-3"
+    title="Usuario en el centro"
+  >
+    <p slot="description">
+      Nos enfocamos en el <strong>usuario</strong> y su experiencia, creando interfaces
+      intuitivas, modernas y <strong>atractivas.</strong>
+    </p>
+  </BentoItem>
+  <BentoItem
+    className="md:col-span-3 md:row-start-3 bg-gradient-to-r from-primary to-primary/60"
+    title="Aparece en internet"
+  >
+    <p slot="description">
+      Gracias a usar buena arquitectura y <strong>prácticas modernas</strong>,
+      tus proyectos aparecerán en internet de manera efectiva. Sin <strong
+        >SEO</strong
+      > de humo.
+    </p>
+  </BentoItem>
+  <BentoItem
+    className="md:col-span-3 md:col-start-1 md:row-start-4"
+    title="Usuario en el centro"
+  >
+    <p slot="description">
+      Nos enfocamos en el <strong>usuario</strong> y su experiencia, creando interfaces
+      intuitivas, modernas y <strong>atractivas.</strong>
+    </p>
+  </BentoItem>
+
+  <div
+    class="bg-red-300 p-4 rounded-xl md:col-span-2 md:row-span-2 md:col-start-4 md:row-start-3"
+  >
+    5
+  </div>
+</div>
