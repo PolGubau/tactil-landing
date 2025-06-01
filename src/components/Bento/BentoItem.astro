@@ -6,7 +6,13 @@ type Props = {
 const { title, className }: Props = Astro.props;
 ---
 
-<div class:list={["bento-item", "bg-background leading-tight", className]}>
+<div
+  class:list={[
+    "bento-item",
+    "bg-background leading-tight md:text-2xl",
+    className,
+  ]}
+>
   <h3 class="bento-title text-xl md:text-2xl font-bold">{title}</h3>
   <slot name="description" />
 </div>

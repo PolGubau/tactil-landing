@@ -3,10 +3,17 @@ import BentoItem from "./BentoItem.astro";
 ---
 
 <div class="relative grid grid-cols-1 md:grid-cols-5 md:grid-rows-4 gap-4">
+  <!-- bubbles -->
   <div
     class="absolute blur-3xl opacity-70 -z-10 w-48 h-48 left-[50%] bg-gradient-to-br from-primary"
   >
   </div>
+  <div
+    class="absolute blur-3xl opacity-70 -z-10 w-48 h-48 left-[20%] -bottom-4 bg-gradient-to-br from-primary"
+  >
+  </div>
+
+  <!-- items -->
   <BentoItem
     className="md:col-span-2 md:row-span-2 bg-foreground text-background"
     title="Páginas y aplicaciones web"
@@ -31,28 +38,39 @@ import BentoItem from "./BentoItem.astro";
     className="md:col-span-3 md:row-start-3 bg-gradient-to-tr from-rose-400 to-red-500"
     title="Aparece en internet"
   >
-    <p slot="description">
-      Te haremos aparecer en internet de manera efectiva usando buena
-      arquitectura y prácticas modernas. Sin <strong>SEO</strong> de humo.
-    </p></BentoItem
-  >
-</div>
+    <div slot="description" class="flex flex-col gap-2">
+      <p>
+        Te haremos aparecer en internet de manera efectiva usando buena
+        arquitectura y prácticas modernas. Sin <strong>SEO</strong> de humo.
+      </p>
 
-<BentoItem
-  className="md:col-span-3 md:col-start-1 md:row-start-4"
-  title="Logo y creación de marca"
->
-  <p slot="description">
-    Creamos <strong>identidades visuales</strong> únicas y memorables, que reflejan
-    la esencia de tu marca y te hacen <strong> destacar en el mercado. </strong>
-  </p>
-</BentoItem>
-<BentoItem
-  className="md:col-span-2 md:row-span-2 md:col-start-4 md:row-start-3"
-  title="Usuario en el centro"
->
-  <p slot="description">
-    Nos enfocamos en el <strong>usuario</strong> y su experiencia, creando interfaces
-    intuitivas, modernas y <strong>atractivas.</strong>
-  </p>
-</BentoItem>
+      <p>
+        <span class="text-3xl font-bold"> 42.526 </span>
+        <span
+          >usuarios han descubierto a nuestros clientes a través de Google.</span
+        >
+      </p>
+    </div>
+  </BentoItem>
+
+  <BentoItem
+    className="md:col-span-3 md:col-start-1 md:row-start-4"
+    title="Logo y creación de marca"
+  >
+    <p slot="description">
+      Creamos <strong>identidades visuales</strong> únicas y memorables, que reflejan
+      la esencia de tu marca y te hacen <strong>
+        destacar en el mercado.
+      </strong>
+    </p>
+  </BentoItem>
+  <BentoItem
+    className="md:col-span-2 md:row-span-2 md:col-start-4 md:row-start-3"
+    title="Usuario en el centro"
+  >
+    <p slot="description">
+      Nos enfocamos en el <strong>usuario</strong> y su experiencia, creando interfaces
+      intuitivas, modernas y <strong>atractivas.</strong>
+    </p>
+  </BentoItem>
+</div>
