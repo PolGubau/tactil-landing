@@ -1,9 +1,9 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
+import { ClientRouter } from "astro:transitions";
 import { metadata } from "../lib/constants";
 import "../styles/global.css";
-import { ClientRouter } from "astro:transitions";
 
 interface Props {
 	title?: string;
@@ -32,15 +32,6 @@ const {
 	href={new URL("rss.xml", Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
-
-<!-- Font preloads -->
-<link
-	rel="preload"
-	href="/fonts/Gabarito.ttf"
-	as="font"
-	type="font/ttf"
-	crossorigin
-/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

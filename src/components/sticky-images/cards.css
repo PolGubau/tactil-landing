@@ -35,7 +35,7 @@
 }
 .card {
   position: sticky;
-  top: 10vh;
+  top: 10dvh;
   padding-top: calc(var(--index) * var(--card-top-offset));
 }
 
