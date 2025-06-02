@@ -6,14 +6,8 @@ type Props = {
 const { title, className }: Props = Astro.props;
 ---
 
-<div
-  class:list={[
-    "bento-item",
-    "bg-background leading-tight md:text-2xl",
-    className,
-  ]}
->
-  <h3 class="bento-title text-xl md:text-2xl font-bold">{title}</h3>
+<div class:list={["bento-item", "bg-background leading-tight", className]}>
+  <h3 class="bento-title font-bold text-xl md:text-2xl">{title}</h3>
   <slot name="description" />
 </div>
 
@@ -22,7 +16,7 @@ const { title, className }: Props = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    /* box-shadow: -15px 15px 60px 0px rgba(0, 0, 0, 0.175); */
+    box-shadow: -7px 7px 20px 0px rgba(0, 0, 0, 0.05);
     border-radius: 1em;
     padding: min(8vw, 2rem);
     border: 1px solid rgba(0, 0, 0, 0.1);
