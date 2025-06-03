@@ -1,0 +1,19 @@
+---
+type Props = {
+  title: string;
+  category: "design" | "code" | "quality" | "publish";
+};
+const { title, category } = Astro.props;
+---
+
+<div
+  class="content relative bg-primary rounded-2xl aspect-video h-[600px] w-full p-8 border-6 border-background flex flex-col justify-center items-center"
+>
+  <p
+    class="absolute -top-6 -left-4 border-4 border-background bg-primary p-1 px-4 rounded-lg w-fit"
+  >
+    {title}
+  </p>
+
+  <p>Aquí irá un video to guapo sobre {category}</p>
+</div>

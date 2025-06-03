@@ -48,17 +48,17 @@
 
 
 
-.card:nth-child(odd) img {
+.card:nth-child(odd) .content {
   transform: 
   rotate(calc(var(--reverse-index0) * -1deg)) translateX(3vw);
 }
 
-.card:nth-child(even) img {
+.card:nth-child(even) .content {
   transform: 
   rotate(calc(var(--reverse-index0) * 1deg)) translateX(-3vw);
 }
 /* last */
-.card:nth-child(4) img {
+.card:nth-child(4) .content {
   transform: rotate(0deg) translateX(0);
 }
 

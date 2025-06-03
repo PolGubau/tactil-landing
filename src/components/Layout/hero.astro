@@ -1,16 +1,17 @@
 ---
+import { t } from "~/i18n/translations/fn";
 import Header from "./header/header.astro";
+const l = Astro.currentLocale;
 ---
 
-<article class="flex flex-col gap-10 px-6 pb-10 font-medium">
-  <strong class="delayed-appearing">Tactil</strong>
+<article
+  class="flex flex-col gap-10 min-h-[60vh] sticky top-20 max-w-5xl px-6 sm:px-16 xl:px-20 w-full mt-10"
+>
+  <strong class="pb-10 delayed-appearing">tactil.</strong>
   <Header />
 
   <div class="flex flex-col gap-6 delayed-appearing">
-    <p class="md:max-w-screen-sm">
-      Estudio de <strong> diseño </strong> y desarrollo <strong> web </strong> a
-      medida, centrado en experiencias digitales elegantes, rápidas y escalables.
-    </p>
+    <p class="md:max-w-screen-sm" set:html={t(l, "summary")} />
 
     <div class="gap-2 flex">
       <a
@@ -20,7 +21,7 @@ import Header from "./header/header.astro";
         id="contact-button"
         class="group cursor-pointer font-semibold rounded-xl md:text-2xl select-none text-center underline decoration-2 decoration-primary underline-offset-2"
       >
-        Pedir presupuesto
+        Let's build something real
 
         <span
           class="opacity-0 w-0 group-hover:w-4 h-4 translate-x-0 group-hover:translate-x-4 group-hover:opacity-100 transition-all"
@@ -32,25 +33,6 @@ import Header from "./header/header.astro";
   </div>
 
   <style>
-    /* when scroll, it looses opacity */
-
-    @keyframes opacity-fade {
-      from {
-        opacity: 1;
-      }
-      to {
-        transform: translateY(20px);
-        opacity: 0;
-        filter: blur(2px);
-      }
-    }
-
-    .delayed-appearing {
-      opacity: 0;
-      animation: fade-in 0.5s ease-in-out;
-      animation-delay: 2.5s;
-      animation-fill-mode: forwards;
-    }
     article {
       /* Create View Timeline */
       view-timeline-name: --revealing-image;
@@ -62,7 +44,7 @@ import Header from "./header/header.astro";
 
       /* Tweak range when effect should run*/
       /* only on exit */
-      animation-range: cover 25% cover 30%;
+      animation-range: cover 20% cover 30%;
     }
   </style>
 </article>

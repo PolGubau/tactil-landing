@@ -1,13 +1,14 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
-import ProjectHeader from "../../components/Projects/ProjectHeader.astro";
-import MainLayout from "../../layouts/MainLayout.astro";
-import MdLayout from "../../layouts/MdLayout.astro";
-import { getProjects } from "../../lib/utils";
-import SimilarProjects from "../../components/Projects/SimilarProjects.astro";
-import ProjectBar from "../../components/Projects/ProjectBar.astro";
-import { metadata } from "../../lib/constants";
+import ProjectBar from "~/components/Projects/ProjectBar.astro";
+import ProjectHeader from "~/components/Projects/ProjectHeader.astro";
+import SimilarProjects from "~/components/Projects/SimilarProjects.astro";
+import MainLayout from "~/layouts/MainLayout.astro";
+import MdLayout from "~/layouts/MdLayout.astro";
+import { getMetadata } from "~/lib/constants";
+import { getProjects } from "~/lib/utils";
+const locale = Astro.currentLocale;
 
 export async function getStaticPaths() {
 	const projects = getProjects();
@@ -22,6 +23,8 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"projects">;
 
 const project = Astro.props;
+
+const metadata = getMetadata(locale ?? "en");
 
 const PAGE_TITLE = `${project.data.title} - Projects - ${metadata.title}`;
 const { Content, headings } = await render(project);

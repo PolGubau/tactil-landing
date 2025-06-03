@@ -1,53 +1,24 @@
 ---
-import { Image } from "astro:assets";
-import exampleAnimated from "../../assets/media/other/example-animated.webp";
-import exampleBlog from "../../assets/media/other/example-codedByPol.webp";
-import exampleFlags from "../../assets/media/other/example-flags.webp";
-import examplePortfolio from "../../assets/media/other/example-portfolio.webp";
 import "./cards.css";
+import StickyCard from "./sticky-card.astro";
 ---
 
-<section id="cards">
+<section id="cards" class="delayed-appearing">
   <div class="cards-container">
     <ul class="sticked-cards">
       <li class="card" id="card_1">
-        <Image
-          alt="A preview of the performance stats in my technical blog"
-          src={exampleAnimated}
-          decoding="async"
-          loading="lazy"
-          width={850}
-          height={600}
-        />
+        <StickyCard title="Design that moves. Literally." category="design" />
       </li>
       <li class="card" id="card_2">
-        <Image
-          alt="A preview of the performance stats in my portfolio"
-          src={examplePortfolio}
-          decoding="async"
-          loading="lazy"
-          width={850}
-          height={600}
-        />
+        <StickyCard title="Code that's crafted. Not copied." category="code" />
       </li>
       <li class="card" id="card_3">
-        <Image
-          alt="A preview of the performance stats in my technical blog"
-          src={exampleBlog}
-          decoding="async"
-          loading="lazy"
-          width={850}
-          height={600}
-        />
+        <StickyCard title="Pixel-perfect by default" category="publish" />
       </li>
-      <li id="card_4" class="card">
-        <Image
-          alt="A preview of the performance stats in my technical blog"
-          src={exampleFlags}
-          decoding="async"
-          loading="lazy"
-          width={850}
-          height={600}
+      <li class="card" id="card_4">
+        <StickyCard
+          title="No templates. Just performance."
+          category="quality"
         />
       </li>
     </ul>

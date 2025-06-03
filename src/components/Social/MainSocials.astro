@@ -1,9 +1,11 @@
 ---
-import { metadata } from "../../lib/constants";
-import LinkedinIcon from "../icons/LinkedinIcon.astro";
-import GithubIcon from "../icons/GithubIcon.astro";
-import SocialLink from "./SocialLink.astro";
+import { getMetadata } from "~/lib/constants";
+
 import EmailIcon from "../icons/EmailIcon.astro";
+import GithubIcon from "../icons/GithubIcon.astro";
+import LinkedinIcon from "../icons/LinkedinIcon.astro";
+import SocialLink from "./SocialLink.astro";
+const metadata = getMetadata(Astro.currentLocale ?? "en");
 ---
 
 <div class="flex flex-wrap justify-center gap-2 md:justify-start">

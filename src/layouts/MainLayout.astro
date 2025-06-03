@@ -24,3 +24,23 @@ const { title, description, image } = Astro.props;
     </main>
   </body>
 </html>
+
+<style is:global>
+  @keyframes opacity-fade {
+    from {
+      opacity: 1;
+    }
+    to {
+      transform: translateY(20px);
+      opacity: 0;
+      filter: blur(10px);
+    }
+  }
+
+  .delayed-appearing {
+    opacity: 0;
+    animation: fade-in 0.8s ease-in-out;
+    animation-delay: 2.2s;
+    animation-fill-mode: forwards;
+  }
+</style>

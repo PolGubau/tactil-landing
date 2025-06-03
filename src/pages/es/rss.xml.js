@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { metadata } from '../../lib/constants';
- 
+import { metadata } from '~/lib/constants';
+
 export async function GET(context) {
 	const posts = await getCollection('blog');
 	const project = await getCollection('projects');
