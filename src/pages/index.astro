@@ -4,13 +4,14 @@ import MainLayout from "~/layouts/MainLayout.astro";
 import Hero from "~/components/Layout/hero.astro";
 import ProjectsList from "~/components/Projects/ProjectList/ProjectsList.astro";
 import StickyImages from "~/components/sticky-images/sticky-images.astro";
+import Ticket from "~/components/Ticket/Ticket.astro";
 import { getProjects } from "~/lib/utils";
 
 const firstProjects = getProjects(4);
 ---
 
 <MainLayout>
-  <main class="flex w-full flex-1 flex-col gap-20">
+  <main class="flex w-full flex-1 flex-col gap-20 items-center">
     <section class="flex flex-col items-center">
       <Hero />
       <StickyImages />
@@ -22,11 +23,7 @@ const firstProjects = getProjects(4);
       </div>
     </section> -->
 
-    <p>
-      Building a great site takes many moving parts: Design. Engineering. Copy.
-      Motion. 3D. UX. Coordinating that burns time your team shouldn't spend.
-      That's where we come in.
-    </p>
+    <Ticket />
 
     <section class="flex flex-col items-center">
       <div class="max-w-4xl p-5 w-full">

@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+import sprite from "../../assets/media/ticket-sprites.webp";
+/* width: 579.24px; */
+/* height: 1001.47px; */
+---
+
+<style>
+  /* section {
+    position: sticky;
+    height: 100%;
+    padding-bottom: 100vh;
+    top: 5vh;
+  } */
+
+  .ticket-wrapper {
+    /* margin-bottom: 1000px; */
+    max-height: 60vh;
+    aspect-ratio: 579 / 1003;
+  }
+
+  .ticket {
+    height: 100%;
+    width: 579px
+    max-height: 100%;
+    object-fit: none;
+    object-position: 0% 0%;
+    transition: none;
+
+    animation: burn 1s steps(7) forwards;
+    view-timeline-name: --burning-ticket;
+    animation-timeline: --burning-ticket;
+    animation-range: 20% contain 100%;
+  }
+
+  @keyframes burn {
+    from {
+      object-position: 0% 0%;
+    }
+    90% {
+      opacity: 1;
+    }
+    to {
+      object-position: 100% 0%;
+      opacity: 0;
+    }
+  }
+</style>
+
+<section class="grid grid-cols-2 px-8 md:px-16 lg:px-24 gap-6">
+  <div class="h-full grid grid-rows-[1fr_auto] gap-6 sticky top-[5vh]">
+    <header class="flex flex-col h-fit gap-4">
+      <p class="opacity-70">Building a great site is hard.</p>
+      <h2>
+        Coordinating that <strong>burns</strong> time your team shouldn't spend.
+      </h2>
+    </header>
+    <strong>That's where we step in.</strong>
+  </div>
+
+  <div class="ticket-wrapper">
+    <Image src={sprite} alt="Ticket burning" class="ticket" />
+  </div>
+</section>
