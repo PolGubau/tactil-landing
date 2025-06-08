@@ -4,9 +4,8 @@ import MainLayout from "~/layouts/MainLayout.astro";
 import Hero from "~/components/Layout/hero.astro";
 import ProjectsList from "~/components/Projects/ProjectList/ProjectsList.astro";
 import StickyImages from "~/components/sticky-images/sticky-images.astro";
-import Ticket from "~/components/Ticket/Ticket.astro";
 import { getProjects } from "~/lib/utils";
-
+import Ticket from "~/components/Ticket/Ticket.astro";
 const firstProjects = getProjects(4);
 ---
 

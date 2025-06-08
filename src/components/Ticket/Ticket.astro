@@ -1,36 +1,26 @@
 ---
-import { Image } from "astro:assets";
-import sprite from "../../assets/media/ticket-sprites.webp";
 /* width: 579.24px; */
 /* height: 1001.47px; */
 ---
 
 <style>
-  /* section {
-    position: sticky;
-    height: 100%;
-    padding-bottom: 100vh;
-    top: 5vh;
-  } */
-
-  .ticket-wrapper {
-    /* margin-bottom: 1000px; */
-    max-height: 60vh;
-    aspect-ratio: 579 / 1003;
-  }
-
   .ticket {
-    height: 100%;
-    width: 579px
-    max-height: 100%;
+    height: 1003px;
+    aspect-ratio: 579 / 1003;
+
+    width: calc(4635px / 8);
     object-fit: none;
     object-position: 0% 0%;
     transition: none;
 
-    animation: burn 1s steps(7) forwards;
+    animation: burn steps(7) forwards;
     view-timeline-name: --burning-ticket;
     animation-timeline: --burning-ticket;
-    animation-range: 20% contain 100%;
+    animation-range: 20% cover 80%;
+
+    @media screen and (max-width: 600px) {
+      width: 90vw;
+    }
   }
 
   @keyframes burn {
@@ -42,23 +32,106 @@ import sprite from "../../assets/media/ticket-sprites.webp";
     }
     to {
       object-position: 100% 0%;
-      opacity: 0;
+      /* opacity: 0; */
     }
   }
 </style>
 
-<section class="grid grid-cols-2 px-8 md:px-16 lg:px-24 gap-6">
-  <div class="h-full grid grid-rows-[1fr_auto] gap-6 sticky top-[5vh]">
-    <header class="flex flex-col h-fit gap-4">
-      <p class="opacity-70">Building a great site is hard.</p>
-      <h2>
-        Coordinating that <strong>burns</strong> time your team shouldn't spend.
-      </h2>
-    </header>
-    <strong>That's where we step in.</strong>
-  </div>
+<section class="px-8 md:px-16 lg:px-24 flex flex-col gap-10">
+  <header class="flex flex-col h-fit gap-4">
+    <p class="text-2xl md:text-4xl font-black">
+      Building a great site is hard.
+    </p>
+    <h2>Burning money and time on a website that doesn't work is harder.</h2>
+  </header>
 
-  <div class="ticket-wrapper">
-    <Image src={sprite} alt="Ticket burning" class="ticket" />
+  <!-- <div class="ticket-wrapper"> -->
+  <!-- <Image src={sprite} alt="Ticket burning" class="ticket" /> -->
+
+  <div
+    class="border border-neutral-200 flex flex-col gap-10 px-4 py-10 shadow-lg
+  w-full max-w-md"
+  >
+    <header class="text-center">
+      <h3 class="border-y border-dashed py-2">Your current web receipt</h3>
+    </header>
+
+    <ul class="grid cols-2 gap-3">
+      <li class="flex justify-between">
+        <span>Overpriced WordPress theme</span>
+        <span>€99</span>
+      </li>
+      <li class="flex justify-between">
+        <span>Template that doesn't fit your brand</span>
+        <span>€199</span>
+      </li>
+      <li class="flex justify-between">
+        <span>SEO plugin that doesn't work</span>
+        <span>€49</span>
+      </li>
+      <li class="flex justify-between">
+        <span>Opaque hosting provider</span>
+        <span>€79</span>
+      </li>
+      <li class="flex justify-between">
+        <span>Unclear maintenance costs</span>
+        <span>€49/month</span>
+      </li>
+      <li class="flex justify-between">
+        <span>Plugin to make it work</span>
+        <span>€29</span>
+      </li>
+      <li class="flex justify-between">
+        <span>Freelancer to fix everything</span>
+        <span>€299</span>
+      </li>
+      <li class="flex justify-between">
+        <span>Other plugin to fix it (again)</span>
+        <span>€29</span>
+      </li>
+      <li class="flex justify-between">
+        <span>Time lost</span>
+        <span>too much</span>
+      </li>
+
+      <li class="flex justify-between border-y border-dashed py-2">
+        <span class="font-bold">Total</span>
+        <span class="font-bold"> ⌛💸📉 </span>
+      </li>
+    </ul>
+
+    <footer class="text-center">
+      <p class="text-sm text-gray-500">
+        Agencies try to sell you a website without any strategy, customization,
+        or understanding of your business. They just provide some repetitive
+        template and forget about
+        <strong>functionality</strong>.
+      </p>
+    </footer>
+
+    <ul class="flex justify-center h-16">
+      <li class="bg-black w-2"></li>
+      <li class="w-1"></li>
+      <li class="bg-black w-1"></li>
+      <li class="w-2"></li>
+      <li class="bg-black w-1"></li>
+      <li class="w-1"></li>
+      <li class="bg-black w-2"></li>
+      <li class="w-3"></li>
+      <li class="bg-black w-1"></li>
+      <li class="w-2"></li>
+      <li class="bg-black w-2"></li>
+      <li class="w-4"></li>
+      <li class="bg-black w-4"></li>
+      <li class="w-1"></li>
+      <li class="bg-black w-1"></li>
+      <li class="w-3"></li>
+      <li class="bg-black w-2"></li>
+      <li class="w-1"></li>
+      <li class="bg-black w-1"></li>
+      <li class="w-2"></li>
+      <li class="bg-black w-1"></li>
+    </ul>
   </div>
+  <strong class="text-2xl">Identified? That's where we step in.</strong>
 </section>

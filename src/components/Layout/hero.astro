@@ -44,7 +44,10 @@ const l = Astro.currentLocale;
 
       /* Tweak range when effect should run*/
       /* only on exit */
-      animation-range: cover 20% cover 30%;
+      animation-range: cover 25% cover 40%;
+      @media screen and (min-width: 640px) {
+        animation-range: cover 20% cover 30%;
+      }
     }
   </style>
 </article>
