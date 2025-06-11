@@ -4,16 +4,13 @@ import Header from "./header/header.astro";
 const l = Astro.currentLocale;
 ---
 
-<article
-  class="flex flex-col gap-10 min-h-[60vh] sticky top-20 max-w-5xl px-6 sm:px-16 xl:px-20 w-full mt-10"
->
-  <strong class="pb-10 delayed-appearing">tactil.</strong>
+<article class="flex flex-col w-full gap-10 min-h-[60vh] sticky top-60 mt-50">
   <Header />
 
   <div class="flex flex-col gap-6 delayed-appearing">
     <p class="md:max-w-screen-sm" set:html={t(l, "summary")} />
 
-    <div class="gap-2 flex">
+    <!-- <div class="gap-2 flex">
       <a
         href="https://forms.gle/J5xpGDUCiVSRS8Pc7"
         target="_blank"
@@ -29,25 +26,24 @@ const l = Astro.currentLocale;
           →
         </span>
       </a>
-    </div>
+    </div> -->
   </div>
-
-  <style>
-    article {
-      /* Create View Timeline */
-      view-timeline-name: --revealing-image;
-      view-timeline-axis: block;
-
-      /* Attach animation, linked to the  View Timeline */
-      animation: linear opacity-fade both;
-      animation-timeline: --revealing-image;
-
-      /* Tweak range when effect should run*/
-      /* only on exit */
-      animation-range: cover 25% cover 40%;
-      @media screen and (min-width: 640px) {
-        animation-range: cover 20% cover 30%;
-      }
-    }
-  </style>
 </article>
+<style>
+  article {
+    /* Create View Timeline */
+    view-timeline-name: --revealing-image;
+    view-timeline-axis: block;
+
+    /* Attach animation, linked to the  View Timeline */
+    animation: linear opacity-fade both;
+    animation-timeline: --revealing-image;
+
+    /* Tweak range when effect should run*/
+    /* only on exit */
+    animation-range: cover 15% cover 35%;
+    @media screen and (min-width: 640px) {
+      animation-range: cover 10% cover 30%;
+    }
+  }
+</style>

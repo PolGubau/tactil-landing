@@ -7,7 +7,7 @@ export const paths = {
 
 export const baseUrl = "https://tactil.digital";
 
-export function getMetadata(locale: string) {
+export function getMetadata(locale: string = "en") {
 
   if (locale === "es") {
     return {
@@ -18,6 +18,7 @@ export function getMetadata(locale: string) {
       longName: "Tactil | Estudio Digital",
       slogan: "Sitios web hechos a mano, construidos con código",
       picture: "/assets/branding/logo.png",
+      getInTouchLink: "https://forms.gle/J5xpGDUCiVSRS8Pc7",
       tags: [
         "Tactil Digital",
         "Tactil",
@@ -55,6 +56,8 @@ export function getMetadata(locale: string) {
     longName: "Tactil Digital Studio",
     slogan: "Hand-crafted websites, built with code",
     picture: "/assets/branding/logo.png",
+    getInTouchLink: "https://forms.gle/J5xpGDUCiVSRS8Pc7",
+
     tags: [
       "Tactil Digital",
       "Tactil",
