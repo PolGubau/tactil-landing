@@ -1,4 +1,5 @@
 ---
+import designSummary from "../../assets/media/summaries/summary-design.mp4";
 import "./cards.css";
 import StickyCard from "./sticky-card.astro";
 ---
@@ -7,16 +8,29 @@ import StickyCard from "./sticky-card.astro";
   <div class="cards-container">
     <ul class="sticked-cards">
       <li class="card" id="card_1">
-        <StickyCard title="Design that moves. Literally." category="design" />
+        <StickyCard
+          title="Design that moves. Literally."
+          category="design"
+          src={designSummary}
+        />
       </li>
       <li class="card" id="card_2">
-        <StickyCard title="Code that's crafted. Not copied." category="code" />
+        <StickyCard
+          title="Code that's crafted. Not copied."
+          category="code"
+          src=""
+        />
       </li>
       <li class="card" id="card_3">
-        <StickyCard title="Pixel-perfect by default" category="publish" />
+        <StickyCard
+          title="Pixel-perfect by default"
+          category="publish"
+          src=""
+        />
       </li>
       <li class="card" id="card_4">
         <StickyCard
+          src=""
           title="No templates. Just performance."
           category="quality"
         />
