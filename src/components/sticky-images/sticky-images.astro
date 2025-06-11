@@ -1,6 +1,8 @@
 ---
+import summary3 from "../../assets/media/summaries/summary-3.mp4";
 import codeSummary from "../../assets/media/summaries/summary-code.mp4";
 import designSummary from "../../assets/media/summaries/summary-design.mp4";
+import performanceSummary from "../../assets/media/summaries/summary-performance.mp4";
 import "./cards.css";
 import StickyCard from "./sticky-card.astro";
 ---
@@ -26,13 +28,13 @@ import StickyCard from "./sticky-card.astro";
         <StickyCard
           title="Pixel-perfect by default"
           category="publish"
-          src=""
+          src={summary3}
         />
       </li>
       <li class="card" id="card_4">
         <StickyCard
-          src=""
-          title="No templates. Just performance."
+          src={performanceSummary}
+          title="Just performance, no tricks"
           category="quality"
         />
       </li>
