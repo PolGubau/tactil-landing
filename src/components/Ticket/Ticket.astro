@@ -1,57 +1,19 @@
 ---
-/* width: 579.24px; */
-/* height: 1001.47px; */
+import TicketItem from "./TicketItem.astro";
 ---
 
-<style>
-  .ticket {
-    height: 1003px;
-    aspect-ratio: 579 / 1003;
-
-    width: calc(4635px / 8);
-    object-fit: none;
-    object-position: 0% 0%;
-    transition: none;
-
-    animation: burn steps(7) forwards;
-    view-timeline-name: --burning-ticket;
-    animation-timeline: --burning-ticket;
-    animation-range: 20% cover 80%;
-
-    @media screen and (max-width: 600px) {
-      width: 90vw;
-    }
-  }
-/*  */
-  @keyframes burn {
-    from {
-      object-position: 0% 0%;
-    }
-    90% {
-      opacity: 1;
-    }
-    to {
-      object-position: 100% 0%;
-      /* opacity: 0; */
-    }
-  }
-</style>
-
 <section
-  class="flex flex-col gap-10 max-w-5xl items-center text-center px-6 sm:px-16 xl:px-20 w-full"
+  class="flex flex-col gap-10 max-w-5xl items-center text-center xl:px-20 w-full"
 >
-  <header class="flex flex-col h-fit gap-4">
+  <header class="flex flex-col h-fit gap-4 text-pretty">
     <p class="text-2xl md:text-4xl font-black">
       Building a great site <strong>is hard</strong>.
     </p>
-    <h2>
+    <h2 class="text-[0.8em] md:text-lg">
       Burning money and time on <strong>websites that don't work</strong>
       is harder.
     </h2>
   </header>
-
-  <!-- <div class="ticket-wrapper"> -->
-  <!-- <Image src={sprite} alt="Ticket burning" class="ticket" /> -->
 
   <div
     id="ticket"
@@ -63,10 +25,8 @@
     </header>
 
     <ul class="grid cols-2 gap-3">
-      <li class="flex justify-between">
-        <span>Overpriced WordPress theme</span>
-        <span>€99</span>
-      </li>
+      <TicketItem name="Overpriced WordPress theme" price={99} />
+     
       <li class="flex justify-between">
         <span>Template that doesn't fit your brand</span>
         <span>€199</span>

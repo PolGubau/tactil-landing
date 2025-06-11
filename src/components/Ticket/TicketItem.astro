@@ -1,0 +1,22 @@
+---
+type Props = {
+  name: string;
+  price: string | number;
+};
+const { name, price } = Astro.props;
+const locale = Astro.preferredLocale;
+
+// price could be a number or string, in case its a number, format it to a string with currency
+const formattedPrice =
+  typeof price === "number"
+    ? new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: "EUR",
+      }).format(price)
+    : price;
+---
+
+<li class="flex justify-between">
+  <span class="text-sm md:text-[0.8em]">{name}</span>
+  <span>{formattedPrice}</span>
+</li>
