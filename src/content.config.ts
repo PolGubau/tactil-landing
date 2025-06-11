@@ -1,18 +1,7 @@
 import { glob } from "astro/loaders";
 import { defineCollection, z, type InferEntrySchema } from "astro:content";
 
-const blog = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
-	loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		available: z.boolean().optional(),
-		title: z.string(),
-		summary: z.string(),
-		publishedAt: z.string().transform((str) => new Date(str)),
-		tags: z.array(z.string()).optional(),
-	}),
-});
+
 
 const projects = defineCollection({
 	loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
@@ -38,6 +27,5 @@ const projects = defineCollection({
 });
 
 export type Project = InferEntrySchema<"projects">;
-export type Blog = InferEntrySchema<"blog">;
 
-export const collections = { blog, projects };
+export const collections = { projects };

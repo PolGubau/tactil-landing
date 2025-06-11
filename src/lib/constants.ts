@@ -2,7 +2,7 @@ import path from "node:path";
 
 export const paths = {
   projects: path.join(process.cwd(), "src", "content", "projects"),
-  blogs: path.join(process.cwd(), "src", "content", "blog"),
+
 };
 
 export const baseUrl = "https://tactil.digital";
