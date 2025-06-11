@@ -1,20 +1,17 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { metadata } from '~/lib/constants';
+import { getMetadata } from '~/lib/constants';
 
+const metadata = getMetadata("en")
 export async function GET(context) {
-	const posts = await getCollection('blog');
 	const project = await getCollection('projects');
 
 	const projectsItems = project.map((proj) => ({
 		...proj.data,
 		link: `/project/${proj.id}/`,
 	}));
-	const postsItems = posts.map((post) => ({
-		...post.data,
-		link: `/blog/${post.id}/`,
-	}));
-	const allItems = [...postsItems, ...projectsItems];
+
+	const allItems = [ ...projectsItems];
 
 	return rss({
 		title: metadata.title,
