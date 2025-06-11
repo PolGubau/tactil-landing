@@ -4,7 +4,6 @@ export function applyBlogScrollTopTop() {
 
 	function callback(entries: IntersectionObserverEntry[]) {
 		for (const entry of entries) {
-			// only show the scroll to top button when the heading is out of view
 			scrollBtn.dataset.show = (!entry.isIntersecting).toString();
 		}
 	}

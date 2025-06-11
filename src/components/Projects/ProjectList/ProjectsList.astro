@@ -9,6 +9,6 @@ type Props = {
 const { projects } = Astro.props;
 ---
 
-<ul class="flex flex-col gap-2">
+<ul class="flex flex-col gap-20 divide-y divide-dashed divide-primary">
   {projects.map((p, i) => <ProjectListItem p={p} index={i} />)}
 </ul>

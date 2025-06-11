@@ -121,7 +121,6 @@ strong {
   font-weight: 900;
 }
 
-/* project-bar */
 
 #project-bar {
   transform: translateX(-50%) translateY(100%);
@@ -315,122 +314,7 @@ strong {
   animation-range: entry 25% cover 50%;
   animation-fill-mode: both;
 }
-
-/* three phones part */
-@keyframes first-phone {
-  from {
-    opacity: 0;
-    scale: 25%;
-    rotate: -20deg;
-  }
-
-  to {
-    opacity: 1;
-    scale: 100%;
-    rotate: 12deg;
-  }
-}
-
-.show-first-phone {
-  view-timeline: --phone1;
-  view-timeline-axis: block;
-  animation-timeline: --phone1;
-  animation-name: first-phone;
-  animation-range: entry 25% cover 50%;
-  animation-fill-mode: both;
-}
-
-@keyframes second-phone {
-  from {
-    opacity: 0;
-    scale: 25%;
-    rotate: 0deg;
-  }
-
-  to {
-    opacity: 1;
-    scale: 100%;
-    rotate: -4deg;
-  }
-}
-
-.show-second-phone {
-  view-timeline: --phone2;
-  view-timeline-axis: block;
-  animation-timeline: --phone2;
-  animation-name: second-phone;
-  animation-range: entry 25% cover 70%;
-  animation-fill-mode: both;
-}
-
-@keyframes third-phone {
-  from {
-    opacity: 0;
-    scale: 25%;
-    rotate: 10deg;
-  }
-
-  to {
-    opacity: 1;
-    scale: 100%;
-    rotate: -20deg;
-  }
-}
-
-.show-third-phone {
-  view-timeline: --phone2;
-  view-timeline-axis: block;
-  animation-timeline: --phone2;
-  animation-name: third-phone;
-  animation-range: entry 25% cover 70%;
-  animation-fill-mode: both;
-}
-
-@keyframes width-animation {
-  from {
-    opacity: 0;
-    margin-top: 60px;
-  }
-
-  to {
-    opacity: 1;
-    margin-top: 0;
-  }
-}
-
-.width-animation {
-  view-timeline: --width;
-  view-timeline-axis: block;
-  animation-timeline: --width;
-  animation-name: width-animation;
-  animation-range: entry cover 30%;
-  animation-fill-mode: both;
-}
-
-/* animation to enter from left while fading in*/
-@keyframes width-animation {
-  0% {
-    opacity: 0.5;
-    padding: 30px 0;
-  }
-
-  20% {
-    opacity: 1;
-    transform: rotateX(0deg);
-    padding: 0px 0;
-  }
-
-  80% {
-    opacity: 1;
-    transform: rotateX(0deg);
-    padding: 0px 0;
-  }
-
-  100% {
-    opacity: 0.5;
-    padding: 30px 0;
-  }
-}
+  
 
 /* animation that shows in each Y axis border a width animation where the more external it is, the wider */
 .width-animation-both {
@@ -446,7 +330,6 @@ strong {
   from {
     opacity: 0;
     scale: 85%;
-    /* margin-right: 200px; */
     max-height: 20%;
     border-radius: 40px;
   }
@@ -454,7 +337,6 @@ strong {
   to {
     opacity: 1;
     scale: 100%;
-    /* margin-right: 0px;       */
     max-height: 100%;
     border-radius: 10px;
   }
