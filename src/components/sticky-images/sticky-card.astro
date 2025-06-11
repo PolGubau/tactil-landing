@@ -5,11 +5,11 @@ type Props = {
   src: string;
   poster?: string;
 };
-const { title, category, src, poster } = Astro.props;
+const { title, src, poster } = Astro.props;
 ---
 
 <div
-  class="content relative bg-primary rounded-2xl aspect-video w-[90vw] h-full md:h-[600px] md:w-full p-4 border-4 border-background flex flex-col justify-center items-center"
+  class="content relative bg-primary rounded-3xl aspect-video w-[90vw] h-full md:h-[600px] md:w-full p-4 border-4 border-background flex flex-col justify-center items-center"
 >
   <p
     class="absolute -top-6 -left-4 border-4 border-background bg-primary p-1 px-4 rounded-lg w-fit"
@@ -17,9 +17,10 @@ const { title, category, src, poster } = Astro.props;
     {title}
   </p>
   <video
-    class="w-full h-full object-cover bg-cover"
+    class="w-full h-full object-cover bg-cover rounded-xl"
     src={src}
     autoplay
+    poster={poster}
     loop
     muted
     playsinline
