@@ -1,4 +1,5 @@
 ---
+import { ticketData } from "./ticketData";
 import TicketItem from "./TicketItem.astro";
 ---
 
@@ -25,40 +26,11 @@ import TicketItem from "./TicketItem.astro";
     </header>
 
     <ul class="grid cols-2 gap-3">
-      <TicketItem name="Overpriced WordPress theme" price={99} />
-     
-      <li class="flex justify-between">
-        <span>Template that doesn't fit your brand</span>
-        <span>€199</span>
-      </li>
-      <li class="flex justify-between">
-        <span>SEO plugin that doesn't work</span>
-        <span>€49</span>
-      </li>
-      <li class="flex justify-between">
-        <span>Opaque hosting provider</span>
-        <span>€79</span>
-      </li>
-      <li class="flex justify-between">
-        <span>Plugin to make it work</span>
-        <span>€29</span>
-      </li>
-      <li class="flex justify-between">
-        <span>Freelancer to fix everything</span>
-        <span>€299</span>
-      </li>
-      <li class="flex justify-between">
-        <span>Other plugin to fix it (again)</span>
-        <span>€29</span>
-      </li>
-      <li class="flex justify-between">
-        <span>Unclear maintenance costs</span>
-        <span>€49/month</span>
-      </li>
-      <li class="flex justify-between">
-        <span>Time lost</span>
-        <span>too much</span>
-      </li>
+      {
+        ticketData.map((ticket) => (
+          <TicketItem name={ticket.name} price={ticket.price} />
+        ))
+      }
 
       <li class="flex justify-between border-y border-dashed py-2">
         <span class="font-bold">Total</span>

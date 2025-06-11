@@ -5,17 +5,17 @@ const l = Astro.currentLocale;
 ---
 
 <footer
-  class="min-h-dvh bg-primary w-dvw rounded-t-3xl mt-20 z-50 flex justify-center pb-20"
+  class="min-h-[90dvh] bg-primary w-dvw rounded-t-[10vw] mt-20 z-50 flex justify-center pb-20"
 >
   <div
     class="max-w-7xl px-6 xl:px-10 w-full mx-auto flex flex-col justify-end gap-4"
   >
-    <div class="grid md:grid-cols-2">
-      <div>
-        <span class="text-xl md:text-3xl">hey@tactil.studio</span>
+    <div class="grid md:grid-cols-2 gap-4 items-end">
+      <div class="flex flex-col gap-2">
+        <span class="text-2xl md:text-5xl">hey@tactil.studio</span>
         <p>© tactil 2025</p>
       </div>
-      <div class="flex justify-end">
+      <div class="flex md:justify-end">
         <a
           href={getMetadata(l).getInTouchLink}
           target="_blank"
@@ -27,3 +27,10 @@ const l = Astro.currentLocale;
     </div>
   </div>
 </footer>
+
+<style>
+  footer::selection {
+    background-color: black;
+    color: var(--color-primary);
+  }
+</style>

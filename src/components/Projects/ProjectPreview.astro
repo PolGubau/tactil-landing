@@ -10,11 +10,12 @@ interface Props {
 const { project, index } = Astro.props;
 const { data, id: slug } = project;
 const { title, cover: src, category } = data;
-const isFirstLoad = index < 6;
 ---
 
-<div class="group w-full relative flex cursor-pointer flex-col gap-20 pb-20">
-  <header class="grid lg:grid-cols-2 gap-4">
+<div class="group w-full relative flex flex-col items-center gap-20 pb-20">
+  <header
+    class="grid lg:grid-cols-2 gap-4 max-w-7xl w-full items-center max-xl:px-6"
+  >
     <div>
       <span class="first-letter:uppercase text-sm">{category}</span>
       <h3 class="font-medium text-3xl leading-snug dark:text-neutral-800">
@@ -26,29 +27,106 @@ const isFirstLoad = index < 6;
       <p class="text-[0.8em] max-w-lg">
         {data.summary}
       </p>
-
-      <a
-        href={`/projects/${slug}`}
-        title={title}
-        class="cursor-pointer group/link text-[0.8em] flex items-center gap-1"
-      >
-        Read the case study
-        <span
-          class="group-hover/link:translate-x-1 opacity-0 group-hover:opacity-100 transition-all"
-        >
-          →</span
-        >
-      </a>
     </div>
   </header>
-  <Image
-    class="pointer-events-none w-full object-cover object-left transition-all h-[30vh] md:h-[60dvh] bg-primary"
-    src={src}
-    priority={isFirstLoad}
-    loading={isFirstLoad ? "eager" : "lazy"}
-    title={`Cover Image for ${title}`}
-    alt={title}
-    width={600}
-    height={330}
-  />
+  <section class="">
+    <ul class="">
+      <li>
+        <Image
+          class="image-sizing"
+          src={src}
+          priority={false}
+          loading={"lazy"}
+          title={`Cover Image for ${title}`}
+          alt={title}
+          width={600}
+          height={330}
+        />
+      </li>
+      <li>
+        <Image
+          class="image-sizing"
+          src={src}
+          priority={false}
+          loading={"lazy"}
+          title={`Cover Image for ${title}`}
+          alt={title}
+          width={600}
+          height={330}
+        />
+      </li>
+      <li>
+        <Image
+          class="image-sizing"
+          src={src}
+          priority={false}
+          loading={"lazy"}
+          title={`Cover Image for ${title}`}
+          alt={title}
+          width={600}
+          height={330}
+        />
+      </li>
+      <li>
+        <Image
+          class="image-sizing"
+          src={src}
+          priority={false}
+          loading={"lazy"}
+          title={`Cover Image for ${title}`}
+          alt={title}
+          width={600}
+          height={330}
+        />
+      </li>
+    </ul>
+  </section>
 </div>
+
+<style>
+  ul {
+    width: 100dvw;
+    display: flex;
+    height: 60dvh;
+    gap: 2dvw;
+    overflow-x: scroll;
+    padding: 0 calc((100vw - 80rem) / 2);
+    scroll-snap-type: x proximity;
+    align-items: center; /* Optional: vertically align images if they have different heights */
+    /* OCULTAR BARRA DE SCROLL */
+    -ms-overflow-style: none; /* Para IE y Edge */
+    scrollbar-width: none; /* Para Firefox */
+  }
+
+  /* Esconde la barra de scroll para WebKit (Chrome, Safari, Edge moderno) */
+  ul::-webkit-scrollbar {
+    display: none;
+  }
+  @media screen and (max-width: 720px) {
+    ul {
+      height: 30dvh;
+      padding: 0 20px;
+    }
+  }
+  li {
+    overflow: hidden;
+    list-style-type: none;
+    scroll-snap-align: center;
+    flex-shrink: 0;  
+    width: auto;  
+    height: 100%; 
+  }
+
+  /* Style for the image within the li */
+  .image-sizing {
+    background-color: var(--color-primary);
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.3s ease-in-out;
+  }
+
+  li:nth-child(even) {
+    background-color: cyan;
+  }
+</style>

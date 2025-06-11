@@ -1,8 +1,7 @@
 ---
-type Props = {
-  name: string;
-  price: string | number;
-};
+import type { TicketItem } from "./ticketData";
+
+type Props = TicketItem;
 const { name, price } = Astro.props;
 const locale = Astro.preferredLocale;
 
@@ -17,6 +16,6 @@ const formattedPrice =
 ---
 
 <li class="flex justify-between">
-  <span class="text-sm md:text-[0.8em]">{name}</span>
-  <span>{formattedPrice}</span>
+  <span class="text-[0.8em] md:text-md">{name}</span>
+  <span class="text-[0.8em] md:text-md">{formattedPrice}</span>
 </li>
