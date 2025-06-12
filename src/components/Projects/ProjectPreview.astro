@@ -7,9 +7,9 @@ interface Props {
   index: number;
 }
 
-const { project, index } = Astro.props;
-const { data, id: slug } = project;
-const { title, cover: src, category } = data;
+const { project } = Astro.props;
+const { data, id: _slug } = project;
+const { title, category, images } = data;
 ---
 
 <div class="group w-full relative flex flex-col items-center gap-20 pb-20">
@@ -31,54 +31,22 @@ const { title, cover: src, category } = data;
   </header>
   <section class="">
     <ul class="">
-      <li>
-        <Image
-          class="image-sizing"
-          src={src}
-          priority={false}
-          loading={"lazy"}
-          title={`Cover Image for ${title}`}
-          alt={title}
-          width={600}
-          height={330}
-        />
-      </li>
-      <li>
-        <Image
-          class="image-sizing"
-          src={src}
-          priority={false}
-          loading={"lazy"}
-          title={`Cover Image for ${title}`}
-          alt={title}
-          width={600}
-          height={330}
-        />
-      </li>
-      <li>
-        <Image
-          class="image-sizing"
-          src={src}
-          priority={false}
-          loading={"lazy"}
-          title={`Cover Image for ${title}`}
-          alt={title}
-          width={600}
-          height={330}
-        />
-      </li>
-      <li>
-        <Image
-          class="image-sizing"
-          src={src}
-          priority={false}
-          loading={"lazy"}
-          title={`Cover Image for ${title}`}
-          alt={title}
-          width={600}
-          height={330}
-        />
-      </li>
+      {
+        images.map((src) => (
+          <li>
+            <Image
+              class="image-sizing"
+              src={src}
+              priority={false}
+              loading={"lazy"}
+              title={`Cover Image for ${title}`}
+              alt={title}
+              width={900}
+              height={730}
+            />
+          </li>
+        ))
+      }
     </ul>
   </section>
 </div>
@@ -112,21 +80,17 @@ const { title, cover: src, category } = data;
     overflow: hidden;
     list-style-type: none;
     scroll-snap-align: center;
-    flex-shrink: 0;  
-    width: auto;  
-    height: 100%; 
+    flex-shrink: 0;
+    width: auto;
+    height: 100%;
   }
 
   /* Style for the image within the li */
   .image-sizing {
-    background-color: var(--color-primary);
+    /* background-color: var(--color-primary); */
     width: auto;
     height: 100%;
     object-fit: contain;
     transition: all 0.3s ease-in-out;
-  }
-
-  li:nth-child(even) {
-    background-color: cyan;
   }
 </style>
