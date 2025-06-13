@@ -1,5 +1,5 @@
 const translationKeys = [
-  "title", "subtitle", "summary", "getInTouch"
+  "title", "subtitle", "summary", "getInTouch", "ticketTitle", "ticketSubtitle", "ticketFooter",
 
 ] as const;
 

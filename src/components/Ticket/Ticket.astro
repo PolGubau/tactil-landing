@@ -1,19 +1,17 @@
 ---
+import { t } from "~/i18n/translations/fn";
+import { T } from "~/i18n/translations/types";
 import { ticketData } from "./ticketData";
 import TicketItem from "./TicketItem.astro";
+const l = Astro.currentLocale;
 ---
 
 <section
   class="flex flex-col gap-10 max-w-5xl items-center text-center xl:px-20 w-full"
 >
   <header class="flex flex-col h-fit gap-4 text-pretty">
-    <p class="text-2xl md:text-4xl font-black">
-      Building a great site <strong>is hard</strong>.
-    </p>
-    <h2 class="text-[0.8em] md:text-lg">
-      Burning money and time on <strong>websites that don't work</strong>
-      is harder.
-    </h2>
+    <p class="text-2xl md:text-4xl font-black" set:html={t(l, T.ticketTitle)} />
+    <h2 class="text-[0.8em] md:text-lg" set:html={t(l, T.ticketSubtitle)} />
   </header>
 
   <div
@@ -71,9 +69,10 @@ import TicketItem from "./TicketItem.astro";
       <li class="bg-black w-1"></li>
     </ul>
   </div>
-  <strong class="text-xl text-pretty md:text-2xl"
-    >Identified? That's where we step in.</strong
-  >
+  <strong
+    class="text-xl text-pretty md:text-2xl"
+    set:html={t(l, T.ticketFooter)}
+  />
 </section>
 
 <style>

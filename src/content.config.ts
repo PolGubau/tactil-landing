@@ -6,7 +6,10 @@ const projects = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
-			summary: z.string(),
+			summary: z.object({
+				en: z.string(),
+				es: z.string()
+			}),
 			available: z.boolean(),
 			startedAt: z.string().transform((str) => new Date(str)),
 			endedAt: z
