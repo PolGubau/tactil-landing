@@ -1,3 +1,11 @@
+---
+import { t } from "~/i18n/translations/fn";
+import { T } from "~/i18n/translations/types";
+import { getMetadata } from "~/lib/constants";
+const l = Astro.currentLocale;
+const link = getMetadata(l).getInTouchLink;
+---
+
 <header
   class="z-40 fixed top-0 w-full items-center flex justify-between py-4 md:py-6 px-6 md:px-10 delayed-appearing"
 >
@@ -6,11 +14,11 @@
   </div>
   <div>
     <a
-      href="https://forms.gle/J5xpGDUCiVSRS8Pc7"
+      href={link}
       target="_blank"
       rel="noopener noreferrer"
       class="bg-primary py-2 px-4 rounded-full cursor-crosshair hover:brightness-90 hover:scale-105 transition-all border-background border-2 hover:border-primary"
-      >Get in touch</a
+      >{t(l, T.getInTouch)}</a
     >
   </div>
 </header>

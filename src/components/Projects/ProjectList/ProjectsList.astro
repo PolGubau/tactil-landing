@@ -1,16 +1,16 @@
 ---
-import type { ProjectMetadata } from "~/lib/utils";
+import { getProjects } from "~/lib/utils";
 import ProjectListItem from "./ProjectListItem.astro";
 
 type Props = {
-  projects: ProjectMetadata[];
+  limit?: number;
 };
-
-const { projects } = Astro.props;
+const { limit } = Astro.props;
+const projects = getProjects(limit);
 ---
 
 <ul
   class="flex flex-col gap-20 divide-y divide-dashed divide-primary max-w-7xl"
 >
   {projects.map((p, i) => <ProjectListItem p={p} index={i} />)}
-</ul>
+</ul>;
