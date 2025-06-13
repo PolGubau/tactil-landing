@@ -1,75 +1,23 @@
 ---
 import MainLayout from "~/layouts/MainLayout.astro";
 
-import Bento from "~/components/Bento/Bento.astro";
 import Hero from "~/components/Layout/hero.astro";
 import ProjectsList from "~/components/Projects/ProjectList/ProjectsList.astro";
 import StickyImages from "~/components/sticky-images/sticky-images.astro";
+import Ticket from "~/components/Ticket/Ticket.astro";
 import { getProjects } from "~/lib/utils";
-
-const firstProjects = getProjects(4);
+const firstProjects = getProjects(6);
 ---
 
 <MainLayout>
-  <main class="flex w-full flex-1 flex-col gap-20 mt-[5dvh]">
-    <section class="flex flex-col items-center gap-y-64">
-      <div class="sticky top-20 max-w-screen-md md:p-5 w-full">
-        <Hero />
-      </div>
-      <StickyImages />
-    </section>
+  <main
+    class="flex flex-col gap-20 items-center max-w-7xl px-6 xl:px-10 w-full"
+  >
+    <Hero />
+    <StickyImages />
 
-    <section class="flex flex-col items-center">
-      <div class="max-w-screen-xl p-5 w-full">
-        <Bento />
-      </div>
-    </section>
+    <Ticket />
 
-    <section class="flex flex-col items-center">
-      <div class="max-w-screen-md p-5 w-full">
-        <h2 class="my-10 gap-5 font-medium text-3xl">
-          Proyectos que hemos visto crecer
-        </h2>
-        <ProjectsList projects={firstProjects} />
-      </div>
-    </section>
-    <!-- <section class="flex flex-col items-center">
-      <div class="max-w-screen-xl p-5 w-full">
-        <Pricing />
-      </div>
-    </section>
-    <section class="flex flex-col items-center">
-      <div class="max-w-screen-xl p-5 w-full">
-        <ContactForm client:load />
-      </div>
-    </section> -->
-
-    <!-- <section
-      class="flex flex-col items-center gap-5 bg-foreground text-background min-h-screen"
-    >
-      <div class="max-w-4xl p-5 w-full">
-        <h2 class="my-10 gap-5 font-medium text-3xl">
-          Nuestro antimanifiesto 🤷‍♂️
-        </h2>
-        <p>
-          Nos comprometemos firmemente a <strong>no</strong> hacer lo siguiente:
-        </p>
-        <ul class="list-decimal pl-5 mt-5">
-          <li class="flex flex-col gap-2">Wordpress</li>
-          <li>Wix</li>
-          <li>Shopify</li>
-          <li>Webs de 3500€ para panaderías</li>
-          <li>Campañas SEO de humo</li>
-        </ul>
-      </div>
-    </section> -->
-    <!-- <ThreePhones images={imagesPhones} />
-    <section class="">
-      <hgroup class="balance mt-16 flex flex-col gap-5 font-medium text-3xl">
-        <p>🧪🥼</p>
-        <h2>I love to create personal projects and experiments.</h2>
-      </hgroup>
- 
-    </section> -->
+    <ProjectsList projects={firstProjects} />
   </main>
 </MainLayout>
