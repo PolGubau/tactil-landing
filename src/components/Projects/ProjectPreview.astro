@@ -29,8 +29,8 @@ const { title, category, images } = data;
       </p>
     </div>
   </header>
-  <section class="">
-    <ul class="">
+  <section>
+    <ul>
       {
         images.map((src) => (
           <li>
@@ -43,8 +43,8 @@ const { title, category, images } = data;
               decoding="async"
               title={`Cover Image for ${title}`}
               alt={title}
-              width={900}
-              height={730}
+              width={800}
+              height={550}
             />
           </li>
         ))
@@ -57,7 +57,7 @@ const { title, category, images } = data;
   ul {
     width: 100dvw;
     display: flex;
-    height: 60dvh;
+    height: 60vh;
     gap: 2dvw;
     overflow-x: scroll;
     padding: 0 calc((100vw - 80rem) / 2);
@@ -74,7 +74,7 @@ const { title, category, images } = data;
   }
   @media screen and (max-width: 720px) {
     ul {
-      height: 30dvh;
+      height: 30vh;
       padding: 0 20px;
     }
   }
