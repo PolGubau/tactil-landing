@@ -6,17 +6,19 @@ category: "web"
 color: "#fca164"
 
 images: 
- - "./img/trackup/0.webp"
- - "./img/trackup/1.webp"
- - "./img/trackup/2.webp"
- - "./img/trackup/3.webp"
- - "./img/trackup/4.webp"
- - "./img/trackup/5.webp"
- - "./img/trackup/6.webp"
+ - ./img/trackup/1.webp
+ - ./img/trackup/2.webp
+ - ./img/trackup/3.webp
+ - ./img/trackup/4.webp
+ - ./img/trackup/5.webp
+ - ./img/trackup/6.webp
  
 available: true
-
-summary: "TrackUp is a revolutionary workout app that simplifies your training regimen by dynamically customizing routines based on your fitness level. "
+summary: { 
+  en: "TrackUp is a smart workout app that personalizes your training in real time, adjusting routines to match your fitness level and progress. It simplifies the path to your goals with dynamic, data-driven workouts tailored just for you.", 
+  es: "TrackUp es una aplicación de entrenamiento inteligente que personaliza tu entrenamiento en tiempo real, ajustando las rutinas para que coincidan con tu nivel de condición física y progreso. Simplifica el camino hacia tus objetivos con entrenamientos dinámicos y basados en datos, diseñados solo para ti."
+  }
+ 
 githubLink: https://github.com/Track-up/website
 link: https://www.trackup.es
 tech: 
@@ -29,9 +31,9 @@ tech:
 import At from "~/components/mdx-components/at.astro";
 import { Image } from 'astro:assets';
 
-import trackup1 from '~/assets/media/projects/trackup/1.webp';
-import trackup2 from '~/assets/media/projects/trackup/2.webp';
-import trackup3 from '~/assets/media/projects/trackup/3.webp';
+import trackup1 from './img/trackup/1.webp';
+import trackup2 from './img/trackup/2.webp';
+import trackup3 from './img/trackup/3.webp';
 
 ## TrackUp - Your Copilot for the Gym
 

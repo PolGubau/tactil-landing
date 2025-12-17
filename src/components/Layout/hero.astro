@@ -8,25 +8,7 @@ const l = Astro.currentLocale;
   <Header />
 
   <div class="flex flex-col gap-6 delayed-appearing">
-    <p class="md:max-w-screen-sm" set:html={t(l, "summary")} />
-
-    <!-- <div class="gap-2 flex">
-      <a
-        href="https://forms.gle/J5xpGDUCiVSRS8Pc7"
-        target="_blank"
-        rel="noopener noreferrer"
-        id="contact-button"
-        class="group cursor-pointer font-semibold rounded-xl md:text-2xl select-none text-center underline decoration-2 decoration-primary underline-offset-2"
-      >
-        Let's build something real
-
-        <span
-          class="opacity-0 w-0 group-hover:w-4 h-4 translate-x-0 group-hover:translate-x-4 group-hover:opacity-100 transition-all"
-        >
-          →
-        </span>
-      </a>
-    </div> -->
+    <p class="md:max-w-screen-sm text-pretty" set:html={t(l, "summary")} />
   </div>
 </article>
 <style>

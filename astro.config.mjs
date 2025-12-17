@@ -11,7 +11,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://polgubau.com',
+  site: 'https://tactil.vercel.app',
   prefetch: true, experimental: {
     headingIdCompat: true, contentIntellisense: true,
 
