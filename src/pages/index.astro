@@ -3,19 +3,17 @@ import MainLayout from "~/layouts/MainLayout.astro";
 
 import Hero from "~/components/Layout/hero.astro";
 import ProjectsList from "~/components/Projects/ProjectList/ProjectsList.astro";
-import StickyImages from "~/components/sticky-images/sticky-images.astro";
 import Ticket from "~/components/Ticket/Ticket.astro";
+import StickyImages from "~/components/sticky-images/sticky-images.astro";
+import PricingSection from "~/features/sections/pricing/PricingSection.astro";
 ---
 
 <MainLayout>
-  <main
-    class="flex flex-col gap-20 items-center max-w-7xl px-6 xl:px-10 w-full"
-  >
-    <Hero />
-    <StickyImages />
+  <Hero />
+  <StickyImages />
 
-    <Ticket />
+  <Ticket />
 
-    <ProjectsList />
-  </main>
+  <ProjectsList />
+  <PricingSection />
 </MainLayout>

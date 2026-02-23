@@ -1,5 +1,6 @@
 ---
 import { t } from "~/i18n/translations/fn";
+import { T } from "~/i18n/translations/types";
 import Header from "./header/header.astro";
 const l = Astro.currentLocale;
 ---
@@ -7,10 +8,28 @@ const l = Astro.currentLocale;
 <article class="flex flex-col w-full gap-10 min-h-[60vh] sticky top-60 mt-50">
   <Header />
 
-  <div class="flex flex-col gap-6 delayed-appearing">
-    <p class="md:max-w-screen-sm text-pretty" set:html={t(l, "summary")} />
+  <div class="flex flex-col gap-6 delayed-appearing mb-8">
+    <p class="md:max-w-screen-sm balanced" set:html={t(l, "summary")} />
+  </div>
+
+  <div class="flex gap-6 items-center delayed-appearing max-md:text-sm">
+    <a
+      href={"/contact"}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="bg-primary py-2 px-4 rounded-full cursor-crosshair hover:brightness-90 hover:scale-105 transition-all border-background border-2 hover:border-primary"
+      >{t(l, T.want_to_see_my_proposal)}
+    </a>
+    <a
+      href={"#how-it-works"}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="cursor-pointer hover:underline"
+      >{t(l, T.how_it_works)}
+    </a>
   </div>
 </article>
+
 <style>
   article {
     /* Create View Timeline */

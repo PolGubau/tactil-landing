@@ -1,10 +1,7 @@
-const translationKeys = [
-  "title", "subtitle", "summary", "getInTouch", "ticketTitle", "ticketSubtitle", "ticketFooter",
+import {en} from "./locales/en"
 
-] as const;
-
-export const Translations = Object.fromEntries(translationKeys.map((k) => [k, k])) as {
-  [K in (typeof translationKeys)[number]]: K;
+export const Translations = Object.fromEntries(Object.keys(en).map((k) => [k, k])) as {
+  [K in keyof typeof en]: K;
 };
 
 export const T = Translations;

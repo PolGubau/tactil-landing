@@ -4,10 +4,29 @@ import { T } from "~/i18n/translations/types";
 import { getMetadata } from "~/lib/constants";
 
 const l = Astro.currentLocale;
+
+// Configuración de idiomas disponibles
+const locales = [
+  { code: "en", label: "EN", name: "English" },
+  { code: "es", label: "ES", name: "Español" },
+  { code: "pt-br", label: "PT", name: "Português" },
+];
+
+// Obtener la ruta actual sin el prefijo de idioma
+const currentPath = Astro.url.pathname;
+const pathWithoutLocale = currentPath.replace(/^\/(es|pt-br)(\/|$)/, "/");
+
+// Generar URLs para cada idioma
+const getLocalizedUrl = (localeCode: string) => {
+  if (localeCode === "en") {
+    return pathWithoutLocale === "/" ? "/" : pathWithoutLocale;
+  }
+  return `/${localeCode}${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
+};
 ---
 
 <footer
-  class="min-h-[90dvh] bg-primary w-dvw rounded-t-[10vw] mt-20 z-50 flex justify-center pb-20"
+  class="min-h-[50dvh] bg-primary w-dvw rounded-t-[10vw] mt-20 z-50 flex justify-center pb-20"
 >
   <div
     class="max-w-7xl px-6 xl:px-10 w-full mx-auto flex flex-col justify-end gap-4"
@@ -15,7 +34,40 @@ const l = Astro.currentLocale;
     <div class="grid md:grid-cols-2 gap-4 items-end">
       <div class="flex flex-col gap-2">
         <span class="text-2xl md:text-5xl">hey@tactil.studio</span>
-        <p>© tactil 2025</p>
+        <div class="flex items-center gap-3">
+          <p>© tactil 2025</p>
+          <span class="text-sm opacity-50">|</span>
+          <div class="relative inline-block">
+            <select
+              id="language-selector"
+              class="appearance-none bg-transparent border border-black/20 rounded-md px-3 py-1 pr-8 text-sm cursor-pointer hover:border-black/40 transition-colors focus:outline-none focus:ring-2 focus:ring-black/20"
+              aria-label="Select language"
+            >
+              {
+                locales.map((locale) => (
+                  <option
+                    value={getLocalizedUrl(locale.code)}
+                    selected={l === locale.code}
+                  >
+                    {locale.label}
+                  </option>
+                ))
+              }
+            </select>
+            <svg
+              class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </div>
       </div>
       <div class="flex md:justify-end">
         <a
@@ -29,6 +81,20 @@ const l = Astro.currentLocale;
     </div>
   </div>
 </footer>
+
+<script>
+  const languageSelector = document.getElementById(
+    "language-selector",
+  ) as HTMLSelectElement;
+
+  if (languageSelector) {
+    languageSelector.addEventListener("change", (e) => {
+      const target = e.target as HTMLSelectElement;
+      const newUrl = target.value;
+      window.location.href = newUrl;
+    });
+  }
+</script>
 
 <style>
   footer::selection {

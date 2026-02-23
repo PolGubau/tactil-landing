@@ -1,0 +1,91 @@
+---
+type Pricing = {
+  oldPrice?: number;
+  price?: number;
+  title: string;
+  description: string;
+  features: string[];
+  cta: string;
+};
+const pricingPacks: Pricing[] = [
+  {
+    oldPrice: 1499,
+    price: 499,
+    title: "Web corporativa",
+    description:
+      "Presencia digital profesional y moderna. Diseñada para destacar tu marca con elegancia.",
+    features: [
+      "Carga ultrarápida",
+      "Hasta 5 páginas",
+      "1 ronda de revisiones incluida",
+      "Hosting premium",
+      "Web en código personalizado",
+    ],
+    cta: "Empezar ahora",
+  },
+  {
+    oldPrice: 799,
+    price: 399,
+    title: "Landing Page",
+    description:
+      "Tu web lista en 7 días. Una landing page moderna, rápida y bien pensada para atraer clientes desde el primer día.",
+    features: [
+      "Carga ultrarrápida",
+      "Hasta 7 secciones",
+      "1 ronda de revisiones incluida",
+      "Hosting premium",
+      "Web en código personalizado",
+    ],
+    cta: "Empezar ahora",
+  },
+  {
+    title: "Presupuesto personalizado",
+    description:
+      "Soluciones a medida para proyectos específicos. Contacta con nosotros para un presupuesto adaptado a tus necesidades.",
+    features: [
+      "Tiendas online",
+      "CRMs y sistemas de gestión",
+      "Soluciones a medida",
+      "Desarrollo custom",
+      "Diseño UX/UI personalizado",
+    ],
+    cta: "Contactar",
+  },
+];
+---
+
+<section class="flex flex-col gap-8">
+  <header class="flex flex-col gap-4">
+    <h2 class="text-xl md:text-3xl font-bold">Precios</h2>
+    <p class="text-lg text-muted max-w-xl">
+      Sin letra pequeña. Sin trucos. Solo precios claros para webs que
+      funcionan.
+    </p>
+  </header>
+  <ul
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8 font-light"
+  >
+    {
+      pricingPacks.map((pricing) => (
+        <li class="flex flex-col gap-4 bg-foreground/5 rounded-lg p-6">
+          <h3 class="text-xl font-bold">{pricing.title}</h3>
+          <p class="text-muted text-sm">{pricing.description}</p>
+          <ul class="flex flex-col list-disc gap-2">
+            {pricing.features.map((feature) => (
+              <li class="flex items-center gap-2 pl-2 text-sm">
+                &#10003;
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <a
+            href={`/proposal?pricing=${encodeURIComponent(pricing.title)}`}
+            class="w-fit rounded-full bg-primary px-4 py-2 text-foreground font-semibold hover:bg-primary-700 transition-colors"
+          >
+            {pricing.cta}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>

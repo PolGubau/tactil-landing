@@ -1,10 +1,13 @@
 ---
+import { t } from "~/i18n/translations/fn";
 import summary3 from "../../assets/media/summaries/summary-3.mp4";
 import codeSummary from "../../assets/media/summaries/summary-code.mp4";
 import designSummary from "../../assets/media/summaries/summary-design.mp4";
 import performanceSummary from "../../assets/media/summaries/summary-performance.mp4";
 import "./cards.css";
+import { T } from "~/i18n/translations/types";
 import StickyCard from "./sticky-card.astro";
+const l = Astro.currentLocale;
 ---
 
 <section id="cards" class="delayed-appearing">
@@ -12,21 +15,21 @@ import StickyCard from "./sticky-card.astro";
     <ul class="sticked-cards">
       <li class="card" id="card_1">
         <StickyCard
-          title="Design that moves. Literally."
+          title={t(l, T.card_1_title)}
           category="design"
           src={designSummary}
         />
       </li>
       <li class="card" id="card_2">
         <StickyCard
-          title="Code that's crafted. Not copied."
+          title={t(l, T.card_2_title)}
           category="code"
           src={codeSummary}
         />
       </li>
       <li class="card" id="card_3">
         <StickyCard
-          title="Pixel-perfect by default"
+          title={t(l, T.card_3_title)}
           category="publish"
           src={summary3}
         />
@@ -34,7 +37,7 @@ import StickyCard from "./sticky-card.astro";
       <li class="card" id="card_4">
         <StickyCard
           src={performanceSummary}
-          title="Just performance, no tricks"
+          title={t(l, T.card_4_title)}
           category="quality"
         />
       </li>

@@ -17,12 +17,16 @@ const { title, description, image } = Astro.props;
     <BaseHead title={title} description={description} image={image} />
   </head>
   <body>
-    <main class="flex min-h-screen w-full text-xl">
-      <div class="mt-8 flex w-full items-center flex-col mx-auto">
-        <Navbar />
-        <slot />
-        <Footer />
+    <main class="flex min-h-screen w-full flex-col gap-20 bg-primary">
+      <Navbar />
+      <div class="bg-background rounded-b-[5vw]">
+        <div
+          class="items-center flex-col mx-auto gap-20 max-w-7xl px-6 xl:px-10 pb-[5vw]"
+        >
+          <slot />
+        </div>
       </div>
+      <Footer />
     </main>
   </body>
 </html>
