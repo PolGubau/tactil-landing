@@ -1,5 +1,7 @@
 ---
+import { t } from "~/i18n/translations/fn";
 import type { TicketItem } from "./ticketData";
+const l = Astro.currentLocale;
 
 type Props = TicketItem;
 const { name, price } = Astro.props;
@@ -16,6 +18,6 @@ const formattedPrice =
 ---
 
 <li class="flex justify-between">
-  <span class="text-[0.8em] md:text-md">{name}</span>
+  <span class="text-[0.8em] md:text-md">{t(l, name)}</span>
   <span class="text-[0.8em] md:text-md">{formattedPrice}</span>
 </li>

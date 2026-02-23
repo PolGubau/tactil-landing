@@ -19,6 +19,16 @@ export const en = {
 	// cards
 	card_1_title: "Design that moves. Literally.",
 	card_2_title: "Code that's crafted. Not copied.",
-  card_3_title: "Pixel-perfect by default",
-  card_4_title: "Just performance, no tricks",
+	card_3_title: "Pixel-perfect by default",
+	card_4_title: "Just performance, no tricks",
+
+  overpriced_wordpress_theme: "Overpriced WordPress theme",
+  template_that_doesnt_fit_your_brand: "Template that doesn't fit your brand",
+  seo_plugins_that_dont_work: "SEO plugins that don't work",
+  opaque_hosting_provider: "Opaque hosting provider",
+  plugin_to_make_it_work: "Plugin to make it work",
+  freelancer_to_fix_everything: "Freelancer to fix everything",
+  other_plugin_to_fix_it_again: "Other plugin to fix it (again)",
+  unclear_maintenance_costs: "Unclear maintenance costs",
+  time_lost: "Time lost"
 } as const;

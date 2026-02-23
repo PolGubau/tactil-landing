@@ -30,7 +30,7 @@ const data = project.data;
         <button
           id="copy-button"
           type="button"
-          class="flex aspect-square rounded-lg p-2 text-secondary-900 transition-all hover:bg-secondary-900/30 cursor-pointer"
+          class="flex aspect-square rounded-lg p-2 text-foreground transition-all hover:bg-foreground/30 cursor-pointer"
           title="Copy project link"
           onclick={"handleCopyLink"}
         >
@@ -46,7 +46,7 @@ const data = project.data;
             target="_blank"
             rel="noopener noreferrer"
           >
-            <li class=" flex aspect-square rounded-lg p-2 text-secondary-900 transition-all hover:bg-secondary-900/30">
+            <li class=" flex aspect-square rounded-lg p-2 text-foreground transition-all hover:bg-foreground/30">
               <NpmIcon width={18} height={18} />
             </li>
           </a>
@@ -62,7 +62,7 @@ const data = project.data;
             target="_blank"
             rel="noopener noreferrer"
           >
-            <li class="flex aspect-square rounded-lg p-2 text-secondary-900 transition-all hover:bg-secondary-900/30">
+            <li class="flex aspect-square rounded-lg p-2 text-foreground transition-all hover:bg-foreground/30">
               <GithubIcon width={18} height={18} />
             </li>
           </a>
@@ -80,7 +80,7 @@ const data = project.data;
           >
             {" "}
             <li
-              class="flex aspect-square rounded-lg bg-secondary-900/90 p-2 transition-all hover:bg-secondary-900"
+              class="flex aspect-square rounded-lg bg-foreground/90 p-2 transition-all hover:bg-foreground"
               style={{
                 color: data.color ?? "#808080",
               }}

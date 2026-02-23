@@ -1,9 +1,5 @@
 ---
-import { t } from "~/i18n/translations/fn";
-import { T } from "~/i18n/translations/types";
-import { getMetadata } from "~/lib/constants";
-const l = Astro.currentLocale;
-const link = getMetadata(l).getInTouchLink;
+import Cta from "~/components/cta.astro";
 ---
 
 <header
@@ -13,12 +9,6 @@ const link = getMetadata(l).getInTouchLink;
     <strong class="font-black text-2xl">tactil.</strong>
   </div>
   <div>
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="bg-primary py-2 px-4 rounded-full cursor-crosshair hover:brightness-90 hover:scale-105 transition-all border-background border-2 hover:border-primary"
-      >{t(l, T.getInTouch)}</a
-    >
+    <Cta />
   </div>
 </header>

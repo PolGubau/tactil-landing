@@ -15,8 +15,18 @@ export const es: AllTranslationsKeys = {
 	how_it_works: "Cómo funciona",
 	footer_hook:
 		"Si tu negocio existe en el mundo real, debe existir bien en digital. <br/> Hazlo tangible.",
-    card_1_title: "Diseño moderno y claro",
-    card_2_title: "Código a medida, no copiado",
-    card_3_title: "Bonito por defecto",
-    card_4_title: "Rendimiento óptimo, sin trucos",
+	card_1_title: "Diseño moderno y claro",
+	card_2_title: "Código a medida, no copiado",
+	card_3_title: "Bonito por defecto",
+	card_4_title: "Rendimiento óptimo, sin trucos",
+
+	overpriced_wordpress_theme: "Tema de WordPress sobrevalorado",
+	template_that_doesnt_fit_your_brand: "Plantilla que no encaja con tu marca",
+	seo_plugins_that_dont_work: "Plugins de SEO que no funcionan",
+	opaque_hosting_provider: "Proveedor de hosting opaco",
+	plugin_to_make_it_work: "Plugin para que funcione",
+	freelancer_to_fix_everything: "Freelancer para arreglarlo todo",
+	other_plugin_to_fix_it_again: "Otro plugin para arreglarlo (de nuevo)",
+	unclear_maintenance_costs: "Costes de mantenimiento poco claros",
+	time_lost: "Tiempo perdido",
 };

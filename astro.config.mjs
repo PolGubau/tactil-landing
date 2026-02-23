@@ -12,11 +12,10 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tactil.vercel.app',
-  prefetch: true, experimental: {
-    headingIdCompat: true, contentIntellisense: true,
-
-  }, i18n: {
-    locales: ["es", "en", "pt-br"],
+  prefetch: true, experimental: { headingIdCompat: true, contentIntellisense: true },
+  output: 'server',
+  i18n: {
+    locales: ["es", "en"],
     defaultLocale: "en",
     routing: {
       prefixDefaultLocale: false
