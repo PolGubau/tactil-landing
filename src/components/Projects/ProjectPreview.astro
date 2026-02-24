@@ -1,8 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import type { AvailableLocale } from "~/i18n/translations/types";
 import type { ProjectMetadata } from "~/lib/utils";
 
-const l = Astro.currentLocale ?? "en";
+const l = (Astro.currentLocale ?? "en") as AvailableLocale;
 interface Props {
   project: ProjectMetadata;
   index: number;
@@ -26,7 +27,7 @@ const { title, category, media } = data;
 
     <div class="flex flex-col gap-2">
       <p class="text-[0.8em] max-w-lg">
-        {data.summary[l as "en" | "es"]}
+        {data.summary[l]}
       </p>
     </div>
   </header>
@@ -34,7 +35,7 @@ const { title, category, media } = data;
     <ul>
       {
         media.map((src) => (
-          <li>
+          <li class="">
             {/* src could be an image (webp) or video (mp4), filter them */}
 
             {typeof src === "string" ? (
@@ -49,7 +50,7 @@ const { title, category, media } = data;
               />
             ) : (
               <Image
-                class="image-sizing"
+                class="image-sizing rounded-lg shadow-xl border-2 border-muted"
                 src={src}
                 priority={false}
                 loading={"lazy"}
@@ -72,8 +73,8 @@ const { title, category, media } = data;
   ul {
     width: 100dvw;
     display: flex;
-    height: 50vh;
-    gap: 2dvw;
+    height: 40vh;
+    gap: 1dvw;
     overflow-x: scroll;
     padding: 0 calc((100vw - 80rem) / 2);
     scroll-snap-type: x proximity;

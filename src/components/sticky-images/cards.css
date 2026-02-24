@@ -2,8 +2,8 @@
 
 :root {
 	--card-height: 30vw;
-	--card-margin: 4vw;
-	--card-top-offset: 6em;
+	--card-margin: 2vw;
+	--card-top-offset: 5em;
 }
 
 #sticked-cards {
@@ -35,7 +35,7 @@
 }
 .card {
 	position: sticky;
-	top: 5dvh;
+	top: 1dvh;
 	padding-top: calc(var(--index) * var(--card-top-offset));
 }
 

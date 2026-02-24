@@ -15,7 +15,7 @@ export const en = {
 	how_it_works: "How it works",
 	footer_hook:
 		"If your business exists, it deserves a great website. <br/> Let's make it happen.",
-
+		see_examples: "See examples",
 	// cards
 	card_1_title: "Design that moves. Literally.",
 	card_2_title: "Code that's crafted. Not copied.",

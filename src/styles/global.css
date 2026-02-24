@@ -136,7 +136,7 @@
 		@apply bg-primary text-background;
 	}
 	body {
-		@apply bg-background text-foreground antialiased font-heading;
+		@apply bg-background text-foreground antialiased font-heading scroll-smooth;
 	}
 }
 

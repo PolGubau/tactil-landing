@@ -19,7 +19,7 @@ export const es: AllTranslationsKeys = {
 	card_2_title: "Código a medida, no copiado",
 	card_3_title: "Bonito por defecto",
 	card_4_title: "Rendimiento óptimo, sin trucos",
-
+	see_examples: "Ver ejemplos",
 	overpriced_wordpress_theme: "Tema de WordPress sobrevalorado",
 	template_that_doesnt_fit_your_brand: "Plantilla que no encaja con tu marca",
 	seo_plugins_that_dont_work: "Plugins de SEO que no funcionan",

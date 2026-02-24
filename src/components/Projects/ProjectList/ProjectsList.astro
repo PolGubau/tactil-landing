@@ -11,7 +11,7 @@ const { limit } = Astro.props;
 const projects = getProjects(limit);
 ---
 
-<section class="flex flex-col gap-12 border-t border-t-muted">
+<section class="flex flex-col gap-12" id="portafolio">
   <header class="flex flex-col gap-4">
     <h2 class="text-xl md:text-3xl font-bold">
       {t(l, "highlighted_projects")}
