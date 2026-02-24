@@ -1,5 +1,11 @@
 import {en} from "./locales/en"
 
+
+export const availableLocales = ["en", "es"] as const;
+
+export type AvailableLocale = (typeof availableLocales)[number];
+
+
 export const Translations = Object.fromEntries(Object.keys(en).map((k) => [k, k])) as {
   [K in keyof typeof en]: K;
 };

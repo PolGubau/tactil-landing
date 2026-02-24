@@ -10,7 +10,7 @@ interface Props {
 
 const { project } = Astro.props;
 const { data, id: _slug } = project;
-const { title, category, images } = data;
+const { title, category, media } = data;
 ---
 
 <div class="group w-full relative flex flex-col items-center gap-20 pb-20">
@@ -33,20 +33,34 @@ const { title, category, images } = data;
   <section>
     <ul>
       {
-        images.map((src) => (
+        media.map((src) => (
           <li>
-            <Image
-              class="image-sizing"
-              src={src}
-              priority={false}
-              loading={"lazy"}
-              fetchpriority="low"
-              decoding="async"
-              title={`Cover Image for ${title}`}
-              alt={title}
-              width={800}
-              height={550}
-            />
+            {/* src could be an image (webp) or video (mp4), filter them */}
+
+            {typeof src === "string" ? (
+              <video
+                class="image-sizing"
+                src={src}
+                title={`Video for ${title}`}
+                controls
+                preload="metadata"
+                width={800}
+                height={550}
+              />
+            ) : (
+              <Image
+                class="image-sizing"
+                src={src}
+                priority={false}
+                loading={"lazy"}
+                fetchpriority="low"
+                decoding="async"
+                title={`Cover Image for ${title}`}
+                alt={title}
+                width={800}
+                height={550}
+              />
+            )}
           </li>
         ))
       }
@@ -58,7 +72,7 @@ const { title, category, images } = data;
   ul {
     width: 100dvw;
     display: flex;
-    height: 60vh;
+    height: 50vh;
     gap: 2dvw;
     overflow-x: scroll;
     padding: 0 calc((100vw - 80rem) / 2);

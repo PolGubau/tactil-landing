@@ -1,6 +1,8 @@
 ---
+import { t } from "~/i18n/translations/fn";
 import { getProjects } from "~/lib/utils";
 import ProjectListItem from "./ProjectListItem.astro";
+const l = Astro.currentLocale;
 
 type Props = {
   limit?: number;
@@ -9,8 +11,16 @@ const { limit } = Astro.props;
 const projects = getProjects(limit);
 ---
 
-<ul
-  class="flex flex-col gap-20 divide-y divide-dashed divide-primary max-w-7xl"
->
-  {projects.map((p, i) => <ProjectListItem p={p} index={i} />)}
-</ul>
+<section class="flex flex-col gap-12 border-t border-t-muted">
+  <header class="flex flex-col gap-4">
+    <h2 class="text-xl md:text-3xl font-bold">
+      {t(l, "highlighted_projects")}
+    </h2>
+  </header>
+
+  <ul
+    class="flex flex-col gap-20 divide-y divide-dashed divide-primary max-w-7xl"
+  >
+    {projects.map((p, i) => <ProjectListItem p={p} index={i} />)}
+  </ul>
+</section>

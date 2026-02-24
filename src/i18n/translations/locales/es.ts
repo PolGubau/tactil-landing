@@ -29,4 +29,38 @@ export const es: AllTranslationsKeys = {
 	other_plugin_to_fix_it_again: "Otro plugin para arreglarlo (de nuevo)",
 	unclear_maintenance_costs: "Costes de mantenimiento poco claros",
 	time_lost: "Tiempo perdido",
+	highlighted_projects: "Proyectos destacados",
+
+	// pricing
+	pack_1_title: "Web corporativa",
+	pack_1_description:
+		"Presencia digital profesional y moderna. Diseñada para destacar tu marca con elegancia.",
+	pack_1_cta: "Empezar ahora",
+	pack_1_feature_1: "Carga ultrarápida",
+	pack_1_feature_2: "Hasta 5 páginas",
+	pack_1_feature_3: "1 ronda de revisiones incluida",
+	pack_1_feature_4: "Hosting premium",
+	pack_1_feature_5: "Web en código personalizado",
+
+	pack_2_title: "Landing Page",
+	pack_2_description:
+		"Tu web lista en 7 días. Una landing page moderna, rápida y bien pensada para atraer clientes desde el primer día.",
+	pack_2_cta: "Empezar ahora",
+	pack_2_feature_1: "Carga ultrarrápida",
+	pack_2_feature_2: "Hasta 7 secciones",
+	pack_2_feature_3: "1 ronda de revisiones incluida",
+	pack_2_feature_4: "Hosting premium",
+	pack_2_feature_5: "Web en código personalizado",
+
+	pack_3_title: "Presupuesto personalizado",
+	pack_3_description:
+		"Soluciones a medida para proyectos específicos. Contacta con nosotros para un presupuesto adaptado a tus necesidades.",
+	pack_3_cta: "Contactar",
+	pack_3_feature_1: "Tiendas online",
+	pack_3_feature_2: "CRMs y sistemas de gestión",
+	pack_3_feature_3: "Soluciones a medida",
+	pack_3_feature_4: "Desarrollo custom",
+	pack_3_feature_5: "Diseño UX/UI personalizado",
+
+	prices: "Precios",
 };

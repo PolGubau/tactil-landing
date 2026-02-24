@@ -3,5 +3,12 @@ import { es } from "./locales/es";
 import type { TranslationsKey } from "./types";
 
 export const t = (locale: string | undefined, key: TranslationsKey): string => {
-  return locale === "es" ? es[key] : en[key];
+	switch (locale) {
+		case "es":
+			return es[key];
+		case "en":
+			return en[key];
+		default:
+			return en[key];
+	}
 };

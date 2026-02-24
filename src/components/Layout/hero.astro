@@ -1,6 +1,7 @@
 ---
 import { t } from "~/i18n/translations/fn";
 import { T } from "~/i18n/translations/types";
+import { ctaStyles } from "../cta.astro";
 import Header from "./header/header.astro";
 const l = Astro.currentLocale;
 ---
@@ -13,18 +14,14 @@ const l = Astro.currentLocale;
   </div>
 
   <div class="flex gap-6 items-center delayed-appearing max-md:text-sm">
-    <a
-      href={"/contact"}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="bg-primary py-2 px-4 rounded-full cursor-crosshair hover:brightness-90 hover:scale-105 transition-all border-background border-2 hover:border-primary"
+    <a target="_blank" rel="noopener noreferrer" class={ctaStyles}
       >{t(l, T.want_to_see_my_proposal)}
     </a>
     <a
       href={"#how-it-works"}
       target="_blank"
       rel="noopener noreferrer"
-      class="cursor-pointer hover:underline"
+      class="cursor-pointer underline hover:decoration-2 transition-all"
       >{t(l, T.how_it_works)}
     </a>
   </div>
@@ -44,7 +41,7 @@ const l = Astro.currentLocale;
     /* only on exit */
     animation-range: cover 8% cover 35%;
     @media screen and (min-width: 640px) {
-      animation-range: cover 7% cover 25%;
+      animation-range: cover 12% cover 25%;
     }
   }
 </style>

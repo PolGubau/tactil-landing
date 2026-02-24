@@ -1,55 +1,56 @@
 ---
+import { t } from "~/i18n/translations/fn";
+import type { TranslationKey } from "~/i18n/translations/types";
+const l = Astro.currentLocale;
+
 type Pricing = {
   oldPrice?: number;
   price?: number;
-  title: string;
-  description: string;
-  features: string[];
-  cta: string;
+  title: TranslationKey;
+  description: TranslationKey;
+  features: TranslationKey[];
+  cta: TranslationKey;
 };
 const pricingPacks: Pricing[] = [
   {
     oldPrice: 1499,
     price: 699,
-    title: "Web corporativa",
-    description:
-      "Presencia digital profesional y moderna. Diseñada para destacar tu marca con elegancia.",
+    title: "pack_1_title",
+    description: "pack_1_description",
     features: [
-      "Carga ultrarápida",
-      "Hasta 5 páginas",
-      "1 ronda de revisiones incluida",
-      "Hosting premium",
-      "Web en código personalizado",
+      "pack_1_feature_1",
+      "pack_1_feature_2",
+      "pack_1_feature_3",
+      "pack_1_feature_4",
+      "pack_1_feature_5",
     ],
-    cta: "Empezar ahora",
+    cta: "pack_1_cta",
   },
   {
     oldPrice: 799,
     price: 499,
-    title: "Landing Page",
-    description:
-      "Tu web lista en 7 días. Una landing page moderna, rápida y bien pensada para atraer clientes desde el primer día.",
+    title: "pack_2_title",
+    description: "pack_2_description",
     features: [
-      "Carga ultrarrápida",
-      "Hasta 7 secciones",
-      "1 ronda de revisiones incluida",
-      "Hosting premium",
-      "Web en código personalizado",
+      "pack_2_feature_1",
+      "pack_2_feature_2",
+      "pack_2_feature_3",
+      "pack_2_feature_4",
+      "pack_2_feature_5",
     ],
-    cta: "Empezar ahora",
+    cta: "pack_2_cta",
   },
   {
-    title: "Presupuesto personalizado",
-    description:
-      "Soluciones a medida para proyectos específicos. Contacta con nosotros para un presupuesto adaptado a tus necesidades.",
+    title: "pack_3_title",
+    description: "pack_3_description",
     features: [
-      "Tiendas online",
-      "CRMs y sistemas de gestión",
-      "Soluciones a medida",
-      "Desarrollo custom",
-      "Diseño UX/UI personalizado",
+      "pack_3_feature_1",
+      "pack_3_feature_2",
+      "pack_3_feature_3",
+      "pack_3_feature_4",
+      "pack_3_feature_5",
     ],
-    cta: "Contactar",
+    cta: "pack_3_cta",
   },
 ];
 
@@ -60,7 +61,7 @@ function urlMaker(title: string) {
 
 <section class="flex flex-col gap-8">
   <header class="flex flex-col gap-4">
-    <h2 class="text-xl md:text-3xl font-bold">Precios</h2>
+    <h2 class="text-xl md:text-3xl font-bold">{t(l, "prices")}</h2>
   </header>
   <ul
     class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8 font-light"
@@ -79,7 +80,7 @@ function urlMaker(title: string) {
           {(pricing.oldPrice || pricing.price) && (
             <header class="flex flex-col pb-4">
               {pricing.oldPrice && (
-                <span class="line-through text-sm text-muted">
+                <span class="line-through text-sm text-muted-foreground">
                   {pricing.oldPrice}€
                 </span>
               )}
@@ -87,15 +88,15 @@ function urlMaker(title: string) {
             </header>
           )}
           <div class="flex flex-col gap-2 pb-4">
-            <h3 class="text-xl">{pricing.title}</h3>
-            <p class="text-muted font-thin text-normal text-[1em]">
-              {pricing.description}
+            <h3 class="text-xl">{t(l, pricing.title)}</h3>
+            <p class="text-muted-foreground font-thin text-normal text-[1em]">
+              {t(l, pricing.description)}
             </p>
             <ul class="flex flex-col list-disc gap-2 pt-5">
               {pricing.features.map((feature) => (
                 <li class="flex items-center gap-2 text-sm">
                   <span>&#10003;</span>
-                  <span>{feature}</span>
+                  <span>{t(l, feature)}</span>
                 </li>
               ))}
             </ul>
@@ -105,7 +106,7 @@ function urlMaker(title: string) {
               href={urlMaker(pricing.title)}
               class="w-fit rounded-full bg-primary px-4 py-2 text-foreground font-semibold hover:bg-primary-700 transition-colors cursor-pointer"
             >
-              {pricing.cta}
+              {t(l, pricing.cta)}
             </a>
           </footer>
         </li>

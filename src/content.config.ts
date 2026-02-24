@@ -1,5 +1,5 @@
+import { type InferEntrySchema, defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
-import { defineCollection, z, type InferEntrySchema } from "astro:content";
 
 const projects = defineCollection({
 	loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
@@ -8,7 +8,7 @@ const projects = defineCollection({
 			title: z.string(),
 			summary: z.object({
 				en: z.string(),
-				es: z.string()
+				es: z.string(),
 			}),
 			available: z.boolean(),
 			startedAt: z.string().transform((str) => new Date(str)),
@@ -21,7 +21,8 @@ const projects = defineCollection({
 			githubLink: z.string().optional(),
 			npmCommand: z.string().optional(),
 			npmLink: z.string().optional(),
-			images: z.array(image()),
+			// mp4s or webps
+			media: z.array(image().or(z.string())),
 			category: z.string(),
 			tech: z.array(z.string()).optional(),
 		}),
