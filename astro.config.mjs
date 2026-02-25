@@ -27,7 +27,7 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
-  integrations: [mdx(), sitemap(), metaTags(), react(), vercel()],
+  integrations: [mdx(), sitemap(), metaTags(), react()],
 
   vite: {
     plugins: [tailwindcss()],
