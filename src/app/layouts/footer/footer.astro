@@ -1,0 +1,42 @@
+---
+import LanguageSelector from "~/shared/language-selector.astro";
+import Cta from "~/shared/ui/cta.astro";
+
+const thisYear = new Date().getFullYear();
+---
+
+<footer
+  class="min-h-[50dvh] bg-primary w-dvw rounded-t-[10vw] mt-20 z-50 flex justify-center pb-20"
+>
+  <div
+    class="max-w-7xl px-6 xl:px-10 w-full mx-auto flex flex-col justify-end gap-4"
+  >
+    <ul class="grid md:grid-cols-2 gap-4 items-end">
+      <li class="flex flex-col gap-2">
+        <span class="text-2xl md:text-5xl">hey@tactil.studio</span>
+        <div class="flex items-center gap-3">
+          <p>© tactil {thisYear}</p>
+          <span class="text-sm">|</span>
+          <LanguageSelector />
+        </div>
+      </li>
+      <li class="flex md:justify-end">
+        <Cta />
+      </li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const languageSelector = document.getElementById(
+    "language-selector",
+  ) as HTMLSelectElement;
+
+  if (languageSelector) {
+    languageSelector.addEventListener("change", (e) => {
+      const target = e.target as HTMLSelectElement;
+      const newUrl = target.value;
+      window.location.href = newUrl;
+    });
+  }
+</script>

@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import type { AvailableLocale } from "~/i18n/translations/types";
 import type { ProjectMetadata } from "~/lib/utils";
+import type { Locale } from "~/shared/i18n/types";
 
-const l = (Astro.currentLocale ?? "en") as AvailableLocale;
+const l = (Astro.currentLocale ?? "en") as Locale;
 interface Props {
   project: ProjectMetadata;
 }

@@ -1,7 +1,7 @@
 ---
 import NativeSelect from "~/components/ui/native-select/NativeSelect.astro";
 import NativeSelectOption from "~/components/ui/native-select/native-select-option.astro";
-import { availableLocales } from "~/i18n/translations/types";
+import { localeList } from "./i18n/locales";
 
 const lang = Astro.currentLocale;
 
@@ -26,7 +26,7 @@ const getLocalizedUrl = (localeCode: string) => {
   data-current-locale={lang}
 >
   {
-    availableLocales.map((locale) => (
+    localeList.map((locale) => (
       <NativeSelectOption
         value={getLocalizedUrl(locale)}
         selected={lang === locale}

@@ -1,11 +1,11 @@
-import type { TranslationKey } from "~/i18n/translations/types";
+import type { TranslationKey } from "~/shared/i18n/types";
 
 export type TicketItem = {
-  name: TranslationKey;
-  price: string | number;
+	name: TranslationKey;
+	price: string | number;
 };
 
-type Ticket = TicketItem[]
+type Ticket = TicketItem[];
 
 export const ticketData: Ticket = [
 	{

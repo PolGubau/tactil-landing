@@ -1,6 +1,6 @@
 ---
-import { useT } from "~/i18n/translations/fn";
-import { T } from "~/i18n/translations/types";
+import { useT } from "~/shared/i18n/fn";
+import { T } from "~/shared/i18n/types";
 import TicketItem from "./TicketItem.astro";
 import { ticketData } from "./ticketData";
 
@@ -12,7 +12,10 @@ const t = useT(Astro.currentLocale);
 >
   <header class="flex flex-col h-fit gap-4 text-pretty">
     <p class="text-2xl md:text-4xl font-black" set:html={t(T.ticketTitle)} />
-    <h2 class="text-[0.8em] md:text-lg text-muted-foreground" set:html={t(T.ticketSubtitle)} />
+    <h2
+      class="text-[0.8em] md:text-lg text-muted-foreground"
+      set:html={t(T.ticketSubtitle)}
+    />
   </header>
 
   <div

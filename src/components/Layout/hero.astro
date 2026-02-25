@@ -1,13 +1,13 @@
 ---
-import { t } from "~/i18n/translations/fn";
-import { T } from "~/i18n/translations/types";
-import { ctaStyles } from "../cta.astro";
-import Header from "./header/header.astro";
+import { t } from "~/shared/i18n/fn";
+import { T } from "~/shared/i18n/types";
+import { ctaStyles } from "~/shared/ui/cta.astro";
+import Titles from "./titles.astro";
 const l = Astro.currentLocale;
 ---
 
 <article class="flex flex-col w-full gap-10 min-h-[50vh] sticky top-60 mt-50">
-  <Header />
+  <Titles />
 
   <div class="flex flex-col gap-6 delayed-appearing mb-8">
     <p

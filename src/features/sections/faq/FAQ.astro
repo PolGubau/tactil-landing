@@ -1,42 +1,41 @@
 ---
-import { getLangFromUrl, useTranslations } from "~/i18n/utils";
+import { getLangFromUrl, useT } from "~/shared/i18n/fn";
 import FAQAccordion from "./FAQAccordion";
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
+const t = useT(lang);
 const faqItems = [
   {
-    question: t("faq.q1.question"),
-    answer: t("faq.q1.answer"),
+    question: t("faq_q1_question"),
+    answer: t("faq_q1_answer"),
   },
   {
-    question: t("faq.q2.question"),
-    answer: t("faq.q2.answer"),
+    question: t("faq_q2_question"),
+    answer: t("faq_q2_answer"),
   },
   {
-    question: t("faq.q3.question"),
-    answer: t("faq.q3.answer"),
+    question: t("faq_q3_question"),
+    answer: t("faq_q3_answer"),
   },
   {
-    question: t("faq.q4.question"),
-    answer: t("faq.q4.answer"),
+    question: t("faq_q4_question"),
+    answer: t("faq_q4_answer"),
   },
   {
-    question: t("faq.q5.question"),
-    answer: t("faq.q5.answer"),
+    question: t("faq_q5_question"),
+    answer: t("faq_q5_answer"),
   },
   {
-    question: t("faq.q6.question"),
-    answer: t("faq.q6.answer"),
+    question: t("faq_q6_question"),
+    answer: t("faq_q6_answer"),
   },
   {
-    question: t("faq.q7.question"),
-    answer: t("faq.q7.answer"),
+    question: t("faq_q7_question"),
+    answer: t("faq_q7_answer"),
   },
   {
-    question: t("faq.q8.question"),
-    answer: t("faq.q8.answer"),
+    question: t("faq_q8_question"),
+    answer: t("faq_q8_answer"),
   },
 ];
 
@@ -56,10 +55,10 @@ const rightColumn = faqItems.slice(4);
       <h2
         class="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl"
       >
-        {t("faq.title")}
+        {t("faq_title")}
       </h2>
       <p class="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-        {t("faq.subtitle")}
+        {t("faq_subtitle")}
       </p>
     </div>
 

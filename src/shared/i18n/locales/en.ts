@@ -68,4 +68,39 @@ export const en = {
 	pack_3_feature_5: "Personalized UX/UI design",
 
 	prices: "Prices",
+
+	faq_title: "Frequently Asked Questions",
+	faq_subtitle: "Everything you need to know about our services",
+
+	faq_q1_question: "What kind of digital projects do you create?",
+	faq_q1_answer:
+		"We specialize in complete digital solutions: from websites and online stores to custom applications and automation systems. We also offer SEO services, strategic consulting, and ongoing maintenance so your project grows over time.",
+
+	faq_q2_question: "How long does it take to develop my project?",
+	faq_q2_answer:
+		"It depends on the project scope. A landing page can be ready in 5-7 days, a corporate site in 2-3 weeks, and a complete online store in 3-4 weeks. We'll provide you with a detailed timeline after our first meeting, tailored to your deadlines and needs.",
+
+	faq_q3_question: "Will I have full control over my website?",
+	faq_q3_answer:
+		"Absolutely. Your project is 100% yours from day one. We deliver all files and access credentials. If you choose a self-manageable platform, you can make changes yourself. If you prefer us to handle it, we offer flexible maintenance plans with no lock-in.",
+
+	faq_q4_question: "What does post-launch support include?",
+	faq_q4_answer:
+		"Each project includes 30 days of free technical support after launch, covering minor adjustments and answering questions. After that, you can opt for our maintenance plans that include security updates, automatic backups, optimizations, and priority support.",
+
+	faq_q5_question: "Where are you located and who do you work with?",
+	faq_q5_answer:
+		"Although our team is based in Barcelona, we work with clients throughout Spain and other countries. Distance isn't an issue: we use online collaboration tools and maintain fluid communication throughout the project.",
+
+	faq_q6_question: "How do you guarantee the quality of your work?",
+	faq_q6_answer:
+		"We combine technical expertise with proven processes. Each project goes through design, development, testing, and optimization phases. We work with the latest technologies and industry best practices. You can review our portfolio to see real examples of our work.",
+
+	faq_q7_question: "Do you offer consultation before starting?",
+	faq_q7_answer:
+		"Yes, always. We start with a free consultation where we analyze your goals, audience, and budget. We recommend the best technical solution and digital strategy for your specific case, with no commitment.",
+
+	faq_q8_question: "What technologies do you work with?",
+	faq_q8_answer:
+		"We select technology based on each project's needs: React, Astro, Next.js for modern and fast developments; WordPress for self-manageable sites; Shopify for scalable e-commerce. We always prioritize performance, security, and ease of maintenance.",
 } as const;
