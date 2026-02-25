@@ -4,11 +4,14 @@ export const es: AllTranslationsKeys = {
 	title: "Tu negocio puede generar más clientes ",
 	subtitle: "Rápido. Claro. Sin incertidumbre",
 	summary:
-		"Te mostramos una propuesta real de tu futura web antes de que tomes la decisión.",
+		"Un diseño limpio, una estrategia clara y más clientes para tu negocio. ¡Cuéntanos tu idea!",
 	getInTouch: "Hablemos",
 	ticketTitle: "Crear una gran web es <strong>difícil</strong>",
 	ticketSubtitle:
 		"Quemar dinero y tiempo en webs que no funcionan es <strong>aún más difícil</strong>",
+	total: "Total",
+	popular: "Popular",
+	your_current_web_receipt: "Tu recibo web actual",
 	ticketFooter: "¿Identificado? Ahí entramos nosotros",
 	want_to_see_my_proposal: "Quiero ver mi propuesta",
 	without_initial_commitment: "Sin compromiso inicial",

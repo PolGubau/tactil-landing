@@ -1,26 +1,29 @@
 ---
-import { t } from "~/i18n/translations/fn";
+import { useT } from "~/i18n/translations/fn";
 import { T } from "~/i18n/translations/types";
 import TicketItem from "./TicketItem.astro";
 import { ticketData } from "./ticketData";
-const l = Astro.currentLocale;
+
+const t = useT(Astro.currentLocale);
 ---
 
 <section
-  class="flex flex-col gap-10 max-w-5xl items-center text-center xl:px-20 w-full pb-48"
+  class="flex flex-col gap-10 items-center text-center xl:px-20 w-full pb-48"
 >
   <header class="flex flex-col h-fit gap-4 text-pretty">
-    <p class="text-2xl md:text-4xl font-black" set:html={t(l, T.ticketTitle)} />
-    <h2 class="text-[0.8em] md:text-lg" set:html={t(l, T.ticketSubtitle)} />
+    <p class="text-2xl md:text-4xl font-black" set:html={t(T.ticketTitle)} />
+    <h2 class="text-[0.8em] md:text-lg text-muted-foreground" set:html={t(T.ticketSubtitle)} />
   </header>
 
   <div
     id="ticket"
-    class="border border-neutral-200 flex flex-col gap-10 px-6 py-10 shadow-lg
+    class="border border-neutral-200 bg-neutral-100 text-neutral-900 flex flex-col gap-10 px-6 py-10 shadow-lg
   w-full max-w-md text-left"
   >
     <header class="text-center">
-      <h3 class="border-y border-dashed py-2">Your current web receipt</h3>
+      <h3 class="border-y border-dashed py-2">
+        {t(T.your_current_web_receipt)}
+      </h3>
     </header>
 
     <ul class="grid cols-2 gap-3">
@@ -31,7 +34,7 @@ const l = Astro.currentLocale;
       }
 
       <li class="flex justify-between border-y border-dashed py-2">
-        <span class="font-bold">Total</span>
+        <span class="font-bold">{t(T.total)}</span>
         <span class="font-bold"> ⌛💸📉 </span>
       </li>
     </ul>
@@ -71,7 +74,7 @@ const l = Astro.currentLocale;
   </div>
   <strong
     class="text-xl text-pretty md:text-2xl"
-    set:html={t(l, T.ticketFooter)}
+    set:html={t(T.ticketFooter)}
   />
 </section>
 

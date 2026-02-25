@@ -1,0 +1,51 @@
+---
+import NativeSelect from "~/components/ui/native-select/NativeSelect.astro";
+import NativeSelectOption from "~/components/ui/native-select/native-select-option.astro";
+import { availableLocales } from "~/i18n/translations/types";
+
+const lang = Astro.currentLocale;
+
+// Obtener la ruta actual sin el prefijo de idioma
+const currentPath = Astro.url.pathname;
+const pathWithoutLocale = currentPath.replace(/^\/(es|pt-br)(\/|$)/, "/");
+
+// Generar URLs para cada idioma
+const getLocalizedUrl = (localeCode: string) => {
+  if (localeCode === "en") {
+    return pathWithoutLocale === "/" ? "/" : pathWithoutLocale;
+  }
+  return `/${localeCode}${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
+};
+---
+
+<NativeSelect
+  size="sm"
+  id="language-selector"
+  class="appearance-none bg-transparent border border-black/20 rounded-md px-3 py-1 pr-8 text-sm cursor-pointer hover:border-black/40 transition-colors focus:outline-none focus:ring-2 focus:ring-black/20"
+  aria-label="Select language"
+  data-current-locale={lang}
+>
+  {
+    availableLocales.map((locale) => (
+      <NativeSelectOption
+        value={getLocalizedUrl(locale)}
+        selected={lang === locale}
+      >
+        {locale.toUpperCase()}
+      </NativeSelectOption>
+    ))
+  }
+</NativeSelect>
+<script>
+  const languageSelector = document.getElementById(
+    "language-selector",
+  ) as HTMLSelectElement;
+
+  if (languageSelector) {
+    languageSelector.addEventListener("change", (e) => {
+      const target = e.target as HTMLSelectElement;
+      const newUrl = target.value;
+      window.location.href = newUrl;
+    });
+  }
+</script>

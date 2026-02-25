@@ -1,8 +1,7 @@
 ---
-import { t } from "~/i18n/translations/fn";
+import { useT } from "~/i18n/translations/fn";
 import type { TranslationKey } from "~/i18n/translations/types";
-const l = Astro.currentLocale;
-
+const t = useT(Astro.currentLocale);
 type Pricing = {
   oldPrice?: number;
   price?: number;
@@ -59,24 +58,30 @@ function urlMaker(title: string) {
 }
 ---
 
-<section class="flex flex-col gap-8">
+<section class="flex flex-col gap-8 py-20">
   <header class="flex flex-col gap-4">
-    <h2 class="text-xl md:text-3xl font-bold">{t(l, "prices")}</h2>
+    <h2 class="text-xl md:text-3xl font-bold">{t("prices")}</h2>
   </header>
   <ul
-    class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8 font-light"
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 font-light"
   >
     {
-      pricingPacks.map((pricing) => (
+      pricingPacks.map((pricing, index) => (
         <li
           class:list={[
-            "grid  bg-foreground/5 rounded-lg p-6 last:bg-linear-30 last:bg-gradient-to-r last:from-primary/20 last:to-secondary/10",
+            "grid relative bg-muted rounded-lg overflow-hidden p-6 last:bg-linear-30 last:bg-gradient-to-r last:from-primary/20 last:to-secondary/10",
             {
               "grid-rows-[auto_1fr_auto]": pricing.oldPrice || pricing.price,
               "grid-rows-[1fr_auto]": !pricing.oldPrice && !pricing.price,
             },
           ]}
         >
+          {index === 1 && (
+            <div class="absolute top-0 right-0 bg-primary text-xs font-bold px-3 py-2 rounded-bl-xl">
+              {t("popular")}
+            </div>
+          )}
+
           {(pricing.oldPrice || pricing.price) && (
             <header class="flex flex-col pb-4">
               {pricing.oldPrice && (
@@ -87,16 +92,16 @@ function urlMaker(title: string) {
               {pricing.price && <span class="text-lg">{pricing.price}€</span>}
             </header>
           )}
-          <div class="flex flex-col gap-2 pb-4">
-            <h3 class="text-xl">{t(l, pricing.title)}</h3>
+          <div class="flex flex-col gap-4 pb-8">
+            <h3 class="text-xl">{t(pricing.title)}</h3>
             <p class="text-muted-foreground font-thin text-normal text-[1em]">
-              {t(l, pricing.description)}
+              {t(pricing.description)}
             </p>
-            <ul class="flex flex-col list-disc gap-2 pt-5">
+            <ul class="flex flex-col list-disc gap-2 pt-7  border-t border-muted-foreground/20">
               {pricing.features.map((feature) => (
                 <li class="flex items-center gap-2 text-sm">
                   <span>&#10003;</span>
-                  <span>{t(l, feature)}</span>
+                  <span>{t(feature)}</span>
                 </li>
               ))}
             </ul>
@@ -104,9 +109,9 @@ function urlMaker(title: string) {
           <footer class="flex gap-2 items-center">
             <a
               href={urlMaker(pricing.title)}
-              class="w-fit rounded-full bg-primary px-4 py-2 text-foreground font-semibold hover:bg-primary-700 transition-colors cursor-pointer"
+              class="w-fit rounded-full bg-foreground px-4 py-2 text-background font-semibold hover:bg-primary-700 transition-colors cursor-pointer"
             >
-              {t(l, pricing.cta)}
+              {t(pricing.cta)}
             </a>
           </footer>
         </li>

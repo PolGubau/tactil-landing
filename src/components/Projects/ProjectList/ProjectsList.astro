@@ -18,9 +18,7 @@ const projects = getProjects(limit);
     </h2>
   </header>
 
-  <ul
-    class="flex flex-col gap-20 divide-y divide-dashed divide-primary max-w-7xl"
-  >
-    {projects.map((p, i) => <ProjectListItem p={p} index={i} />)}
+  <ul class="flex flex-col gap-20 max-w-7xl">
+    {projects.map((p) => <ProjectListItem p={p} />)}
   </ul>
 </section>

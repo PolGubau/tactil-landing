@@ -4,11 +4,10 @@ import ProjectPreview from "../ProjectPreview.astro";
 
 type Props = {
   p: ProjectMetadata;
-  index: number;
 };
-const { p, index } = Astro.props;
+const { p } = Astro.props;
 ---
 
 <li>
-  <ProjectPreview project={p} index={index} />
+  <ProjectPreview project={p} />
 </li>

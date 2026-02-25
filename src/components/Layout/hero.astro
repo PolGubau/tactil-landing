@@ -10,7 +10,10 @@ const l = Astro.currentLocale;
   <Header />
 
   <div class="flex flex-col gap-6 delayed-appearing mb-8">
-    <p class="max-w-sm balanced" set:html={t(l, "summary")} />
+    <p
+      class="max-w-sm balanced text-muted-foreground"
+      set:html={t(l, "summary")}
+    />
   </div>
 
   <div class="flex gap-6 items-center delayed-appearing max-md:text-sm">
@@ -19,8 +22,6 @@ const l = Astro.currentLocale;
     </a>
     <a
       href={"#portafolio"}
-      target="_blank"
-      rel="noopener noreferrer"
       class="cursor-pointer underline hover:decoration-2 transition-all"
       >{t(l, T.see_examples)}
     </a>

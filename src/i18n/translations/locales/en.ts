@@ -4,18 +4,21 @@ export const en = {
 	title: "Your business can generate more customers",
 	subtitle: "Fast. Clear. No uncertainty.",
 	summary:
-		"We show you a real proposal of your future website before you make the decision.",
+		"Clean design, clear strategy and more clients for your business. Tell us your idea!",
 	getInTouch: "Get in touch",
 	ticketTitle: "Building a great site <strong>is hard</strong>",
 	ticketSubtitle:
 		"Burning money and time on websites that don't work <strong>is harder</strong>",
+	total: "Total",
+	popular: "Popular",
+	your_current_web_receipt: "Your current web receipt",
 	ticketFooter: "Identified? That's where we step in",
 	want_to_see_my_proposal: "I want to see my proposal",
 	without_initial_commitment: "Without initial commitment",
 	how_it_works: "How it works",
 	footer_hook:
 		"If your business exists, it deserves a great website. <br/> Let's make it happen.",
-		see_examples: "See examples",
+	see_examples: "See examples",
 	// cards
 	card_1_title: "Design that moves. Literally.",
 	card_2_title: "Code that's crafted. Not copied.",

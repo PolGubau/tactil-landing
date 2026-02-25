@@ -9,6 +9,9 @@ export const t = (locale: string | undefined, key: TranslationsKey): string => {
 		case "en":
 			return en[key];
 		default:
-			return en[key];
+			return key;
 	}
 };
+
+export const useT = (locale: string | undefined) => (key: TranslationsKey) =>
+	t(locale, key);
