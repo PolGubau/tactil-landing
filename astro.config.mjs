@@ -9,10 +9,17 @@ import metaTags from 'astro-meta-tags';
 
 import react from '@astrojs/react';
 
+import vercel from '@astrojs/vercel';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tactil.vercel.app',
-  prefetch: true, experimental: { headingIdCompat: true, contentIntellisense: true },
+  experimental: { headingIdCompat: true, contentIntellisense: true },
+
+  output: 'server',
+  adapter: vercel({
+
+  }),
   i18n: {
     locales: ["es", "en"],
     defaultLocale: "en",
@@ -20,7 +27,7 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
-  integrations: [mdx(), sitemap(), metaTags(), react()],
+  integrations: [mdx(), sitemap(), metaTags(), react(), vercel()],
 
   vite: {
     plugins: [tailwindcss()],
