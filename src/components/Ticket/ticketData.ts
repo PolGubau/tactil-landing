@@ -42,6 +42,6 @@ export const ticketData: Ticket = [
 	},
 	{
 		name: "time_lost",
-		price: "&infin;",
+		price: "♾️"
 	},
 ];
