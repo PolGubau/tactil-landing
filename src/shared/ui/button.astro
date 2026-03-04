@@ -13,7 +13,8 @@ type Props = {
 	class?: string;
 	type?: "button" | "submit" | "reset";
 	disabled?: boolean;
-	[key: string]: any; // Allow other HTML attributes
+	// biome-ignore lint/suspicious/noExplicitAny: Allow other HTML attributes
+	[key: string]: any;
 };
 
 const {
@@ -60,4 +61,3 @@ const buttonClasses = [
 <button type={type} class={buttonClasses} disabled={disabled} {...rest}>
 	<slot />
 </button>
-

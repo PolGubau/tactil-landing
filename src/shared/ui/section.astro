@@ -8,6 +8,7 @@ import { sectionStyles } from "./styles";
 type Props = {
 	id?: string;
 	class?: string;
+	// biome-ignore lint/suspicious/noExplicitAny: Allow other HTML attributes
 	[key: string]: any;
 };
 
@@ -19,4 +20,3 @@ const finalClasses = [sectionStyles, className].filter(Boolean).join(" ");
 <section id={id} class={finalClasses} {...rest}>
 	<slot />
 </section>
-

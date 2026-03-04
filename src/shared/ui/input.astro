@@ -14,6 +14,7 @@ type Props = {
 	required?: boolean;
 	class?: string;
 	labelClass?: string;
+	// biome-ignore lint/suspicious/noExplicitAny: Allow other HTML attributes
 	[key: string]: any;
 };
 
@@ -52,4 +53,3 @@ const labelClasses = [labelStyles, labelClass].filter(Boolean).join(" ");
 		{...rest}
 	/>
 </div>
-
