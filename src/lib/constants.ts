@@ -71,6 +71,49 @@ export function getMetadata(locale = "en"): Metadata {
 			homeOgImage: "/assets/thumbnail.png",
 		};
 	}
+
+	if (locale === "ca") {
+		return {
+			title: "Tactil | Estudi Web i UX",
+			description:
+				"Tactil.digital és un estudi de disseny i desenvolupament web centrat en experiències digitals elegants, ràpides i escalables. Construït amb codi real, no plantilles o CMS genèrics.",
+			name: "Tactil",
+			longName: "Tactil | Estudi Digital",
+			slogan: "Llocs web fets a mà, construïts amb codi",
+			picture: "/assets/branding/logo.png",
+			getInTouchLink: "https://forms.gle/J5xpGDUCiVSRS8Pc7",
+			tags: [
+				"Tactil Digital",
+				"Tactil",
+				"Estudi Web",
+				"UX Design",
+				"Frontend Development",
+				"React",
+				"Astro",
+				"TailwindCSS",
+				"Custom Web Design",
+				"UI/UX",
+				"Barcelona",
+				"Germany",
+				"Landing Pages",
+				"Corporate Websites",
+				"Dashboards",
+				"Accessible Design",
+				"SEO Optimization",
+			],
+			contact: {
+				email: "hello@tactilstudio.com",
+			},
+			links: {
+				website: "https://tactilstudio.com",
+				twitter: "https://twitter.com/tactil-studio",
+				github: "https://github.com/tactil-studio",
+				linkedin: "https://www.linkedin.com/in/tactil-studio/",
+				email: "mailto:hello@tactilstudio.com",
+			},
+			homeOgImage: "/assets/thumbnail.png",
+		};
+	}
 	return {
 		title: "Tactil | Web & UX Studio",
 		description:
