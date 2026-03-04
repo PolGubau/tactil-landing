@@ -1,10 +1,11 @@
 ---
-
 import MainLayout from "~/app/layouts/MainLayout.astro";
 import Hero from "~/components/Layout/hero.astro";
 import ProjectsList from "~/components/Projects/ProjectList/ProjectsList.astro";
 import Ticket from "~/components/Ticket/Ticket.astro";
 import StickyImages from "~/components/sticky-images/sticky-images.astro";
+import ContactSection from "~/features/sections/contact/ContactSection.astro";
+import FAQ from "~/features/sections/faq/FAQ.astro";
 import PricingSection from "~/features/sections/pricing/PricingSection.astro";
 
 export const prerender = false;
@@ -18,4 +19,6 @@ export const prerender = false;
 
   <ProjectsList />
   <PricingSection />
+  <FAQ />
+  <ContactSection />
 </MainLayout>

@@ -1,5 +1,5 @@
 ---
-import { getProjects } from "~/lib/utils";
+import { getProjects } from "~/lib/projects";
 import { t } from "~/shared/i18n/fn";
 import ProjectListItem from "./ProjectListItem.astro";
 const l = Astro.currentLocale;
@@ -11,14 +11,17 @@ const { limit } = Astro.props;
 const projects = getProjects(limit);
 ---
 
-<section class="flex flex-col gap-12" id="portafolio">
-  <header class="flex flex-col gap-4">
-    <h2 class="text-xl md:text-3xl font-bold">
+<section class="flex flex-col gap-16 py-24 px-4" id="portafolio">
+  <header class="flex flex-col gap-4 text-center">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
       {t(l, "highlighted_projects")}
     </h2>
+    <p class="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+      Proyectos reales que generan resultados reales
+    </p>
   </header>
 
-  <ul class="flex flex-col gap-20 max-w-7xl">
+  <ul class="flex flex-col gap-24 max-w-7xl mx-auto w-full">
     {projects.map((p) => <ProjectListItem p={p} />)}
   </ul>
 </section>

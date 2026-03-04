@@ -58,58 +58,85 @@ function urlMaker(title: string) {
 }
 ---
 
-<section class="flex flex-col gap-8 py-20">
-  <header class="flex flex-col gap-4">
-    <h2 class="text-xl md:text-3xl font-bold">{t("prices")}</h2>
+<section id="precios" class="flex flex-col gap-12 py-24 px-4">
+  <header class="flex flex-col gap-4 text-center">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+      {t("prices")}
+    </h2>
+    <p class="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+      {t("prices_subtitle")}
+    </p>
   </header>
   <ul
-    class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 font-light"
+    class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 max-w-7xl mx-auto w-full"
   >
     {
       pricingPacks.map((pricing, index) => (
         <li
           class:list={[
-            "grid relative bg-muted rounded-lg overflow-hidden p-6 last:bg-linear-30 last:bg-gradient-to-r last:from-primary/20 last:to-secondary/10",
+            "grid relative bg-background border border-border rounded-2xl overflow-hidden p-8 hover:shadow-xl transition-all duration-300",
             {
               "grid-rows-[auto_1fr_auto]": pricing.oldPrice || pricing.price,
               "grid-rows-[1fr_auto]": !pricing.oldPrice && !pricing.price,
+              "border-primary shadow-lg scale-105": index === 1,
+              "last:bg-gradient-to-br last:from-primary/5 last:to-secondary/5":
+                index === 2,
             },
           ]}
         >
           {index === 1 && (
-            <div class="absolute top-0 right-0 bg-primary text-xs font-bold px-3 py-2 rounded-bl-xl">
+            <div class="absolute top-0 right-0 bg-primary text-background text-xs font-bold px-4 py-2 rounded-bl-xl uppercase tracking-wide">
               {t("popular")}
             </div>
           )}
 
           {(pricing.oldPrice || pricing.price) && (
-            <header class="flex flex-col pb-4">
+            <header class="flex flex-col pb-6 border-b border-border">
               {pricing.oldPrice && (
                 <span class="line-through text-sm text-muted-foreground">
                   {pricing.oldPrice}€
                 </span>
               )}
-              {pricing.price && <span class="text-lg">{pricing.price}€</span>}
+              {pricing.price && (
+                <div class="flex items-baseline gap-1">
+                  <span class="text-4xl font-bold">{pricing.price}€</span>
+                  <span class="text-sm text-muted-foreground">/ proyecto</span>
+                </div>
+              )}
             </header>
           )}
-          <div class="flex flex-col gap-4 pb-8">
-            <h3 class="text-xl">{t(pricing.title)}</h3>
-            <p class="text-muted-foreground font-thin text-normal text-[1em]">
-              {t(pricing.description)}
-            </p>
-            <ul class="flex flex-col list-disc gap-2 pt-7  border-t border-muted-foreground/20">
+          <div class="flex flex-col gap-6 py-6">
+            <div>
+              <h3 class="text-2xl font-bold mb-2">{t(pricing.title)}</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">
+                {t(pricing.description)}
+              </p>
+            </div>
+            <ul class="flex flex-col gap-3">
               {pricing.features.map((feature) => (
-                <li class="flex items-center gap-2 text-sm">
-                  <span>&#10003;</span>
-                  <span>{t(feature)}</span>
+                <li class="flex items-start gap-3 text-sm">
+                  <svg
+                    class="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span class="leading-relaxed">{t(feature)}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <footer class="flex gap-2 items-center">
+          <footer class="flex gap-2 items-center pt-4">
             <a
               href={urlMaker(pricing.title)}
-              class="w-fit rounded-full bg-foreground px-4 py-2 text-background font-semibold hover:bg-primary-700 transition-colors cursor-pointer"
+              class="w-full text-center rounded-lg bg-primary px-6 py-3 text-background font-semibold hover:brightness-95 active:scale-[0.98] transition-all shadow-sm hover:shadow-md"
             >
               {t(pricing.cta)}
             </a>

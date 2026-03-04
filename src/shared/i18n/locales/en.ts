@@ -18,7 +18,7 @@ export const en = {
 	how_it_works: "How it works",
 	footer_hook:
 		"If your business exists, it deserves a great website. <br/> Let's make it happen.",
-	see_examples: "See examples",
+
 	// cards
 	card_1_title: "Design that moves. Literally.",
 	card_2_title: "Code that's crafted. Not copied.",
@@ -37,6 +37,7 @@ export const en = {
 	highlighted_projects: "Highlighted projects",
 
 	// pricing
+	prices_subtitle: "Solutions tailored to every need and budget",
 	pack_1_title: "Corporate website",
 	pack_1_description:
 		"Professional and modern digital presence. Designed to highlight your brand with elegance.",
@@ -103,4 +104,42 @@ export const en = {
 	faq_q8_question: "What technologies do you work with?",
 	faq_q8_answer:
 		"We select technology based on each project's needs: React, Astro, Next.js for modern and fast developments; WordPress for self-manageable sites; Shopify for scalable e-commerce. We always prioritize performance, security, and ease of maintenance.",
+
+	// Contact form
+	contact_title: "Let's talk about your project",
+	contact_subtitle:
+		"Tell us what you need and we'll get back to you in less than 24 hours",
+	contact_why_title: "Why choose us?",
+	contact_why_1_title: "24h response",
+	contact_why_1_desc:
+		"We value your time. We respond in less than one business day",
+	contact_why_2_title: "Free consultation",
+	contact_why_2_desc:
+		"First meeting with no commitment to understand your project",
+	contact_why_3_title: "Tailored solutions",
+	contact_why_3_desc:
+		"Every project is unique. We adapt technology to your needs",
+	contact_why_4_title: "Quality guaranteed",
+	contact_why_4_desc: "Clean code, optimal performance, and continuous support",
+	contact_other_ways: "Other ways to contact",
+	contact_name_label: "Name",
+	contact_name_placeholder: "Your name",
+	contact_email_label: "Email",
+	contact_email_placeholder: "your@email.com",
+	contact_phone_label: "Phone",
+	contact_phone_placeholder: "+1 234 567 890",
+	contact_service_label: "Service you need",
+	contact_service_placeholder: "Select a service",
+	contact_service_web: "Corporate website",
+	contact_service_landing: "Landing page",
+	contact_service_ecommerce: "Online store",
+	contact_service_app: "Web application",
+	contact_service_other: "Other",
+	contact_message_label: "Message",
+	contact_message_placeholder: "Tell us more about your project...",
+	contact_submit: "Send message",
+	contact_sending: "Sending...",
+	contact_success: "Message sent! We'll get back to you soon.",
+	contact_error: "Error sending. Please try again.",
+	see_examples: "See examples",
 } as const;

@@ -13,17 +13,21 @@ interface Props {
 const { title, description, image } = Astro.props;
 ---
 
-<html lang="en" dir="ltr" class={"w-screen overflow-x-hidden"}>
+<html
+  lang={Astro.currentLocale || "en"}
+  dir="ltr"
+  class="w-screen overflow-x-hidden scroll-smooth"
+>
   <head>
     <ThemeScript />
     <BaseHead title={title} description={description} image={image} />
   </head>
-  <body>
+  <body class="antialiased">
+    <Navbar />
     <main class="flex min-h-screen w-full flex-col gap-20 bg-primary">
-      <Navbar />
       <div class="bg-background rounded-b-[5vw] flex flex-col gap-20">
         <div
-          class="items-center flex-col mx-auto max-w-7xl px-6 xl:px-10 pb-[5vw]"
+          class="items-center flex-col mx-auto max-w-7xl px-6 xl:px-10 pb-[5vw] w-full"
         >
           <slot />
         </div>

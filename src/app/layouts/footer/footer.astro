@@ -6,17 +6,22 @@ const thisYear = new Date().getFullYear();
 ---
 
 <footer
-  class="min-h-[50dvh] bg-primary w-dvw rounded-t-[10vw] mt-20 z-50 flex justify-center pb-20"
+  class="min-h-[50dvh] bg-primary w-dvw rounded-t-[10vw] mt-32 z-50 flex justify-center pb-20"
 >
   <div
-    class="max-w-7xl px-6 xl:px-10 w-full mx-auto flex flex-col justify-end gap-4"
+    class="max-w-7xl px-6 xl:px-10 w-full mx-auto flex flex-col justify-end gap-8"
   >
-    <ul class="grid md:grid-cols-2 gap-4 items-end">
-      <li class="flex flex-col gap-2">
-        <span class="text-2xl md:text-5xl">hey@tactil.studio</span>
-        <div class="flex items-center gap-3">
-          <p>© tactil {thisYear}</p>
-          <span class="text-sm">|</span>
+    <ul class="grid md:grid-cols-2 gap-8 items-end">
+      <li class="flex flex-col gap-4">
+        <a
+          href="mailto:hey@tactil.studio"
+          class="text-2xl md:text-5xl font-bold hover:opacity-80 transition-opacity"
+        >
+          hey@tactil.studio
+        </a>
+        <div class="flex items-center gap-3 text-sm">
+          <p class="font-medium">© tactil {thisYear}</p>
+          <span>|</span>
           <LanguageSelector />
         </div>
       </li>

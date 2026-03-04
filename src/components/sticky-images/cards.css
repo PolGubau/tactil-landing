@@ -6,6 +6,22 @@
 	--card-top-offset: 5em;
 }
 
+/* Ajustes para pantallas de portátil (laptop) */
+@media screen and (min-width: 1024px) and (max-width: 1536px) {
+	:root {
+		--card-height: 25vw;
+		--card-top-offset: 4em;
+	}
+}
+
+/* Ajustes para pantallas grandes (desktop) */
+@media screen and (min-width: 1536px) {
+	:root {
+		--card-height: 400px;
+		--card-top-offset: 3em;
+	}
+}
+
 #sticked-cards {
 	/* Make place at bottom, as items will slide to that position*/
 	padding-bottom: calc(var(--numCards) * var(--card-top-offset));
@@ -37,6 +53,20 @@
 	position: sticky;
 	top: 1dvh;
 	padding-top: calc(var(--index) * var(--card-top-offset));
+}
+
+/* Centrar mejor las cards en pantallas de portátil */
+@media screen and (min-width: 1024px) {
+	.card {
+		top: 10vh;
+	}
+}
+
+/* Centrar mejor las cards en pantallas grandes */
+@media screen and (min-width: 1536px) {
+	.card {
+		top: 15vh;
+	}
 }
 
 #sticked-cards {

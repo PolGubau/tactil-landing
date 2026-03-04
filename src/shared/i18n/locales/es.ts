@@ -22,7 +22,7 @@ export const es: AllTranslationsKeys = {
 	card_2_title: "Código a medida, no copiado",
 	card_3_title: "Bonito por defecto",
 	card_4_title: "Rendimiento óptimo, sin trucos",
-	see_examples: "Ver ejemplos",
+
 	overpriced_wordpress_theme: "Tema de WordPress sobrevalorado",
 	template_that_doesnt_fit_your_brand: "Plantilla que no encaja con tu marca",
 	seo_plugins_that_dont_work: "Plugins de SEO que no funcionan",
@@ -35,6 +35,7 @@ export const es: AllTranslationsKeys = {
 	highlighted_projects: "Proyectos destacados",
 
 	// pricing
+	prices_subtitle: "Soluciones adaptadas a cada necesidad y presupuesto",
 	pack_1_title: "Web corporativa",
 	pack_1_description:
 		"Presencia digital profesional y moderna. Diseñada para destacar tu marca con elegancia.",
@@ -101,4 +102,42 @@ export const es: AllTranslationsKeys = {
 	faq_q8_question: "¿Con qué tecnologías trabajáis?",
 	faq_q8_answer:
 		"Seleccionamos la tecnología según las necesidades de cada proyecto: React, Astro, Next.js para desarrollos modernos y rápidos; WordPress para sitios autogestionables; Shopify para e-commerce escalable. Siempre priorizamos rendimiento, seguridad y facilidad de mantenimiento.",
+
+	// Contact form
+	contact_title: "Hablemos de tu proyecto",
+	contact_subtitle:
+		"Cuéntanos qué necesitas y te responderemos en menos de 24 horas",
+	contact_why_title: "¿Por qué elegirnos?",
+	contact_why_1_title: "Respuesta en 24h",
+	contact_why_1_desc:
+		"Valoramos tu tiempo. Te respondemos en menos de un día laboral",
+	contact_why_2_title: "Consultoría gratuita",
+	contact_why_2_desc:
+		"Primera reunión sin compromiso para entender tu proyecto",
+	contact_why_3_title: "Soluciones a medida",
+	contact_why_3_desc:
+		"Cada proyecto es único. Adaptamos la tecnología a tus necesidades",
+	contact_why_4_title: "Calidad garantizada",
+	contact_why_4_desc: "Código limpio, rendimiento óptimo y soporte continuo",
+	contact_other_ways: "Otras formas de contacto",
+	contact_name_label: "Nombre",
+	contact_name_placeholder: "Tu nombre",
+	contact_email_label: "Email",
+	contact_email_placeholder: "tu@email.com",
+	contact_phone_label: "Teléfono",
+	contact_phone_placeholder: "+34 600 000 000",
+	contact_service_label: "Servicio que necesitas",
+	contact_service_placeholder: "Selecciona un servicio",
+	contact_service_web: "Web corporativa",
+	contact_service_landing: "Landing page",
+	contact_service_ecommerce: "Tienda online",
+	contact_service_app: "Aplicación web",
+	contact_service_other: "Otro",
+	contact_message_label: "Mensaje",
+	contact_message_placeholder: "Cuéntanos más sobre tu proyecto...",
+	contact_submit: "Enviar mensaje",
+	contact_sending: "Enviando...",
+	contact_success: "¡Mensaje enviado! Te responderemos pronto.",
+	contact_error: "Error al enviar. Inténtalo de nuevo.",
+	see_examples: "Ver ejemplos",
 };
