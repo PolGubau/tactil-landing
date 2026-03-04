@@ -1,8 +1,11 @@
 ---
+import { getMetadata } from "~/lib/constants";
 import { useT } from "~/shared/i18n/fn";
 import ContactForm from "./ContactForm";
 
-const t = useT(Astro.currentLocale);
+const locale = Astro.currentLocale;
+const t = useT(locale);
+const metadata = getMetadata(locale);
 
 const translations = {
   name_label: t("contact_name_label"),
@@ -28,7 +31,7 @@ const translations = {
 ---
 
 <section
-  id="contacto"
+  id="contact"
   class="flex flex-col gap-16 py-24 w-full max-w-7xl mx-auto px-4"
 >
   <header class="flex flex-col gap-4 text-center">
@@ -42,9 +45,13 @@ const translations = {
     </p>
   </header>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-    <!-- Left side - Professional info -->
-    <div class="flex flex-col gap-8 lg:sticky lg:top-32">
+  <ul class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+    <li
+      class="bg-background border border-border rounded-2xl p-8 md:p-10 shadow-lg"
+    >
+      <ContactForm client:load translations={translations} />
+    </li>
+    <li class="flex flex-col gap-8 lg:sticky lg:top-32">
       <div class="bg-muted/50 rounded-2xl p-8 md:p-10 border border-border">
         <h3 class="text-xl font-semibold mb-6">{t("contact_why_title")}</h3>
         <ul class="flex flex-col gap-6">
@@ -168,7 +175,7 @@ const translations = {
         </h4>
         <div class="flex flex-col gap-3">
           <a
-            href="mailto:gubaupol@gmail.com"
+            href={metadata.links.email}
             class="flex items-center gap-3 text-sm hover:text-primary transition-colors group"
           >
             <svg
@@ -184,10 +191,10 @@ const translations = {
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               ></path>
             </svg>
-            <span class="font-medium">gubaupol@gmail.com</span>
+            <span class="font-medium">{metadata.contact.email}</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/polgubauamores/"
+            href={metadata.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             class="flex items-center gap-3 text-sm hover:text-primary transition-colors group"
@@ -205,13 +212,6 @@ const translations = {
           </a>
         </div>
       </div>
-    </div>
-
-    <!-- Right side - Form -->
-    <div
-      class="bg-background border border-border rounded-2xl p-8 md:p-10 shadow-lg"
-    >
-      <ContactForm client:load translations={translations} />
-    </div>
-  </div>
+    </li>
+  </ul>
 </section>

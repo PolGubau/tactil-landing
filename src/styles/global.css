@@ -297,10 +297,6 @@ table {
 	@apply mt-0 rounded-t-none border-t-0;
 }
 
-.balance {
-	text-wrap: balance;
-}
-
 strong {
 	@apply font-semibold;
 }
@@ -325,12 +321,4 @@ strong {
 	animation-range: entry 25% cover 50%;
 	animation-fill-mode: both;
 }
-
-@layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-background text-foreground;
-	}
-}
+ 

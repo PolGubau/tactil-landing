@@ -11,6 +11,7 @@ export const es: AllTranslationsKeys = {
 		"Quemar dinero y tiempo en webs que no funcionan es <strong>aún más difícil</strong>",
 	total: "Total",
 	popular: "Popular",
+	lets_talk: "Hablemos",
 	your_current_web_receipt: "Tu recibo web actual",
 	ticketFooter: "¿Identificado? Ahí entramos nosotros",
 	want_to_see_my_proposal: "Quiero ver mi propuesta",

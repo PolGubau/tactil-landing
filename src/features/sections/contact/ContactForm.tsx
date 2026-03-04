@@ -1,5 +1,9 @@
 import { actions } from "astro:actions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Button } from "~/shared/ui/button";
+import { Input } from "~/shared/ui/input";
+import { Select } from "~/shared/ui/select";
+import { Textarea } from "~/shared/ui/textarea";
 
 type ContactFormProps = {
 	translations: {
@@ -25,18 +29,79 @@ type ContactFormProps = {
 	};
 };
 
+// Mapeo de IDs de servicio a valores de traducción
+const serviceMap: Record<string, string> = {
+	corporate: "service_web",
+	landing: "service_landing",
+	custom: "service_other",
+};
+
 export default function ContactForm({ translations }: ContactFormProps) {
+	// Leer el parámetro de servicio de la URL
+	const getServiceFromURL = () => {
+		if (typeof window === "undefined") return "";
+		const params = new URLSearchParams(window.location.search);
+		const serviceId = params.get("service");
+		if (serviceId && serviceMap[serviceId]) {
+			// Retornar el valor traducido correspondiente
+			return translations[serviceMap[serviceId] as keyof typeof translations] as string;
+		}
+		return "";
+	};
+
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
 		phone: "",
-		service: "",
+		service: getServiceFromURL(),
 		message: "",
 	});
 
 	const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
 		"idle",
 	);
+
+	// Escuchar cambios en la URL
+	useEffect(() => {
+		const handleURLChange = () => {
+			if (typeof window === "undefined") return;
+			const params = new URLSearchParams(window.location.search);
+			const serviceId = params.get("service");
+
+			console.log("ContactForm - URL changed");
+			console.log("Service ID from URL:", serviceId);
+			console.log("Service map:", serviceMap);
+
+			if (serviceId && serviceMap[serviceId]) {
+				const translationKey = serviceMap[serviceId];
+				const translatedService = translations[translationKey as keyof typeof translations] as string;
+
+				console.log("Translation key:", translationKey);
+				console.log("Translated service:", translatedService);
+
+				setFormData((prev) => ({
+					...prev,
+					service: translatedService,
+				}));
+			} else {
+				console.log("No valid service ID found or not in map");
+			}
+		};
+
+		// Escuchar cambios en el hash/search params
+		window.addEventListener("popstate", handleURLChange);
+		window.addEventListener("hashchange", handleURLChange);
+
+		// Ejecutar al montar para capturar el valor inicial
+		console.log("ContactForm mounted, checking URL...");
+		handleURLChange();
+
+		return () => {
+			window.removeEventListener("popstate", handleURLChange);
+			window.removeEventListener("hashchange", handleURLChange);
+		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -81,121 +146,115 @@ export default function ContactForm({ translations }: ContactFormProps) {
 	return (
 		<form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full">
 			{/* Name */}
-			<div className="flex flex-col gap-2">
-				<label htmlFor="name" className="font-semibold text-sm text-foreground">
-					{translations.name_label} <span className="text-red-500">*</span>
-				</label>
-				<input
-					type="text"
-					id="name"
-					name="name"
-					value={formData.name}
-					onChange={handleChange}
-					placeholder={translations.name_placeholder}
-					required
-					className="px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
-				/>
-			</div>
+			<Input
+				label={translations.name_label}
+				id="name"
+				name="name"
+				type="text"
+				value={formData.name}
+				onChange={handleChange}
+				placeholder={translations.name_placeholder}
+				required
+			/>
 
 			{/* Email */}
-			<div className="flex flex-col gap-2">
-				<label htmlFor="email" className="font-semibold text-sm text-foreground">
-					{translations.email_label} <span className="text-red-500">*</span>
-				</label>
-				<input
-					type="email"
-					id="email"
-					name="email"
-					value={formData.email}
-					onChange={handleChange}
-					placeholder={translations.email_placeholder}
-					required
-					className="px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
-				/>
-			</div>
+			<Input
+				label={translations.email_label}
+				id="email"
+				name="email"
+				type="email"
+				value={formData.email}
+				onChange={handleChange}
+				placeholder={translations.email_placeholder}
+				required
+			/>
 
 			{/* Phone */}
-			<div className="flex flex-col gap-2">
-				<label htmlFor="phone" className="font-semibold text-sm text-foreground">
-					{translations.phone_label}
-				</label>
-				<input
-					type="tel"
-					id="phone"
-					name="phone"
-					value={formData.phone}
-					onChange={handleChange}
-					placeholder={translations.phone_placeholder}
-					className="px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all"
-				/>
-			</div>
+			<Input
+				label={translations.phone_label}
+				id="phone"
+				name="phone"
+				type="tel"
+				value={formData.phone}
+				onChange={handleChange}
+				placeholder={translations.phone_placeholder}
+			/>
 
 			{/* Service */}
-			<div className="flex flex-col gap-2">
-				<label htmlFor="service" className="font-semibold text-sm text-foreground">
-					{translations.service_label}
-				</label>
-				<select
-					id="service"
-					name="service"
-					value={formData.service}
-					onChange={handleChange}
-					className="px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all cursor-pointer"
-				>
-					<option value="">{translations.service_placeholder}</option>
-					<option value={translations.service_web}>
-						{translations.service_web}
-					</option>
-					<option value={translations.service_landing}>
-						{translations.service_landing}
-					</option>
-					<option value={translations.service_ecommerce}>
-						{translations.service_ecommerce}
-					</option>
-					<option value={translations.service_app}>
-						{translations.service_app}
-					</option>
-					<option value={translations.service_other}>
-						{translations.service_other}
-					</option>
-				</select>
-			</div>
+			<Select
+				label={translations.service_label}
+				id="service"
+				name="service"
+				value={formData.service}
+				onChange={handleChange}
+			>
+				<option value="">{translations.service_placeholder}</option>
+				<option value={translations.service_web}>
+					{translations.service_web}
+				</option>
+				<option value={translations.service_landing}>
+					{translations.service_landing}
+				</option>
+				<option value={translations.service_ecommerce}>
+					{translations.service_ecommerce}
+				</option>
+				<option value={translations.service_app}>
+					{translations.service_app}
+				</option>
+				<option value={translations.service_other}>
+					{translations.service_other}
+				</option>
+			</Select>
 
 			{/* Message */}
-			<div className="flex flex-col gap-2">
-				<label htmlFor="message" className="font-semibold text-sm text-foreground">
-					{translations.message_label} <span className="text-red-500">*</span>
-				</label>
-				<textarea
-					id="message"
-					name="message"
-					value={formData.message}
-					onChange={handleChange}
-					placeholder={translations.message_placeholder}
-					required
-					rows={6}
-					className="px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none"
-				/>
-			</div>
+			<Textarea
+				label={translations.message_label}
+				id="message"
+				name="message"
+				value={formData.message}
+				onChange={handleChange}
+				placeholder={translations.message_placeholder}
+				required
+				rows={6}
+			/>
 
 			{/* Submit Button */}
-			<button
+			<Button
 				type="submit"
 				disabled={status === "sending"}
-				className="w-full bg-primary text-background font-semibold py-3.5 px-6 rounded-lg hover:brightness-95 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+				variant="primary"
+				size="md"
+				className="w-full"
 			>
 				{status === "sending" ? (
 					<span className="flex items-center justify-center gap-2">
-						<svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-							<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-							<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+						<svg
+							className="animate-spin h-5 w-5"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							aria-label="Loading"
+						>
+							<circle
+								className="opacity-25"
+								cx="12"
+								cy="12"
+								r="10"
+								stroke="currentColor"
+								strokeWidth="4"
+							/>
+							<path
+								className="opacity-75"
+								fill="currentColor"
+								d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+							/>
 						</svg>
 						{translations.sending}
 					</span>
 				) : (
 					translations.submit
 				)}
-			</button>
+			</Button>
 
 			{/* Status Messages */}
 			{status === "success" && (

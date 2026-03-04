@@ -1,0 +1,24 @@
+---
+/**
+ * Card Component - Primitive UI component for cards
+ */
+
+import { cn } from "~/lib/utils";
+import { cardStyles } from "./styles";
+
+type Props = {
+	class?: string;
+	hover?: boolean;
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	[key: string]: any;
+};
+
+const { class: className = "", hover = true, ...rest } = Astro.props;
+
+const hoverStyles = hover ? "hover:shadow-xl" : "";
+const cardClasses = cn(cardStyles, hoverStyles, className);
+---
+
+<div class={cardClasses} {...rest}>
+	<slot />
+</div>

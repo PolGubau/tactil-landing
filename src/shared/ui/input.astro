@@ -1,0 +1,55 @@
+---
+/**
+ * Input Component - Primitive UI component for form inputs
+ */
+
+import { inputBaseStyles, labelStyles } from "./styles";
+
+type Props = {
+	label?: string;
+	id: string;
+	name: string;
+	type?: string;
+	placeholder?: string;
+	required?: boolean;
+	class?: string;
+	labelClass?: string;
+	[key: string]: any;
+};
+
+const {
+	label,
+	id,
+	name,
+	type = "text",
+	placeholder,
+	required = false,
+	class: className = "",
+	labelClass = "",
+	...rest
+} = Astro.props;
+
+const inputClasses = [inputBaseStyles, className].filter(Boolean).join(" ");
+const labelClasses = [labelStyles, labelClass].filter(Boolean).join(" ");
+---
+
+<div class="flex flex-col gap-2">
+	{
+		label && (
+			<label for={id} class={labelClasses}>
+				{label}
+				{required && <span class="text-red-500">*</span>}
+			</label>
+		)
+	}
+	<input
+		type={type}
+		id={id}
+		name={name}
+		placeholder={placeholder}
+		required={required}
+		class={inputClasses}
+		{...rest}
+	/>
+</div>
+

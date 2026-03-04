@@ -3,6 +3,7 @@ import { useT } from "~/shared/i18n/fn";
 import type { TranslationKey } from "~/shared/i18n/types";
 const t = useT(Astro.currentLocale);
 type Pricing = {
+  id: string;
   oldPrice?: number;
   price?: number;
   title: TranslationKey;
@@ -12,6 +13,7 @@ type Pricing = {
 };
 const pricingPacks: Pricing[] = [
   {
+    id: "corporate",
     oldPrice: 1499,
     price: 699,
     title: "pack_1_title",
@@ -26,6 +28,7 @@ const pricingPacks: Pricing[] = [
     cta: "pack_1_cta",
   },
   {
+    id: "landing",
     oldPrice: 799,
     price: 499,
     title: "pack_2_title",
@@ -40,6 +43,7 @@ const pricingPacks: Pricing[] = [
     cta: "pack_2_cta",
   },
   {
+    id: "custom",
     title: "pack_3_title",
     description: "pack_3_description",
     features: [
@@ -52,13 +56,9 @@ const pricingPacks: Pricing[] = [
     cta: "pack_3_cta",
   },
 ];
-
-function urlMaker(title: string) {
-  return `/proposal?pricing=${encodeURIComponent(title)}`;
-}
 ---
 
-<section id="precios" class="flex flex-col gap-12 py-24 px-4">
+<section id="pricing" class="flex flex-col gap-12 py-24 px-4">
   <header class="flex flex-col gap-4 text-center">
     <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
       {t("prices")}
@@ -134,15 +134,80 @@ function urlMaker(title: string) {
             </ul>
           </div>
           <footer class="flex gap-2 items-center pt-4">
-            <a
-              href={urlMaker(pricing.title)}
-              class="w-full text-center rounded-lg bg-primary px-6 py-3 text-background font-semibold hover:brightness-95 active:scale-[0.98] transition-all shadow-sm hover:shadow-md"
+            <button
+              type="button"
+              data-service-id={pricing.id}
+              class="pricing-cta w-full text-center rounded-full bg-primary px-6 py-3 text-background font-semibold hover:brightness-95 active:scale-[0.98] transition-all shadow-sm hover:shadow-md"
             >
               {t(pricing.cta)}
-            </a>
+            </button>
           </footer>
         </li>
       ))
     }
   </ul>
 </section>
+
+<script>
+  // Manejar clicks en los CTAs de pricing
+  function handlePricingClick(e: Event) {
+    const button = e.currentTarget as HTMLButtonElement;
+    const serviceId = button.dataset.serviceId;
+
+    if (!serviceId) return;
+
+    console.log("Pricing button clicked:", serviceId);
+
+    // Actualizar la URL con el parámetro de servicio
+    const url = new URL(window.location.href);
+    url.searchParams.set("service", serviceId);
+    window.history.replaceState({}, "", url.toString());
+
+    console.log("URL updated:", url.toString());
+
+    // Disparar evento para que el formulario se actualice
+    window.dispatchEvent(new Event("popstate"));
+
+    // Hacer scroll al formulario de contact con un pequeño delay
+    requestAnimationFrame(() => {
+      const contactSection = document.getElementById("contact");
+      console.log("Contact section found:", contactSection);
+
+      if (contactSection) {
+        const yOffset = -80; // Offset para navbar si existe
+        const y =
+          contactSection.getBoundingClientRect().top +
+          window.pageYOffset +
+          yOffset;
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth",
+        });
+      }
+    });
+  }
+
+  function initPricingCTAs() {
+    const pricingCTAs =
+      document.querySelectorAll<HTMLButtonElement>(".pricing-cta");
+    console.log("Initializing pricing CTAs:", pricingCTAs.length);
+
+    pricingCTAs.forEach((cta) => {
+      // Remover listener anterior si existe
+      cta.removeEventListener("click", handlePricingClick);
+      // Añadir nuevo listener
+      cta.addEventListener("click", handlePricingClick);
+    });
+  }
+
+  // Ejecutar cuando el DOM esté listo
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPricingCTAs);
+  } else {
+    initPricingCTAs();
+  }
+
+  // Re-inicializar después de navegación (para Astro View Transitions)
+  document.addEventListener("astro:page-load", initPricingCTAs);
+</script>

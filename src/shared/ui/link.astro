@@ -1,0 +1,78 @@
+---
+/**
+ * Link Component - Primitive UI component for links
+ * Supports both internal and external links with consistent styling
+ */
+
+export type LinkVariant = "primary" | "secondary" | "outline" | "ghost" | "underline";
+export type LinkSize = "sm" | "md" | "lg";
+
+type Props = {
+	href: string;
+	variant?: LinkVariant;
+	size?: LinkSize;
+	class?: string;
+	external?: boolean;
+	// biome-ignore lint/suspicious/noExplicitAny: Allow other HTML attributes
+	[key: string]: any;  
+};
+
+const {
+	href,
+	variant = "primary",
+	size = "md",
+	class: className = "",
+	external = false,
+	...rest
+} = Astro.props;
+
+// Determine if link is external
+const isExternal = external || href.startsWith("http") || href.startsWith("//");
+
+// Base styles - always applied
+const baseStyles =
+	"inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-[0.98]";
+
+// Variant styles
+const variantStyles: Record<LinkVariant, string> = {
+	primary:
+		"bg-primary text-background hover:brightness-95 shadow-md hover:shadow-lg focus:ring-primary",
+	secondary:
+		"bg-secondary text-background hover:brightness-95 shadow-md hover:shadow-lg focus:ring-secondary",
+	outline:
+		"border-2 border-border bg-transparent hover:bg-muted focus:ring-border",
+	ghost: "bg-transparent hover:bg-muted focus:ring-muted",
+	underline:
+		"bg-transparent underline hover:decoration-2 focus:ring-primary no-shadow",
+};
+
+// Size styles
+const sizeStyles: Record<LinkSize, string> = {
+	sm: "px-4 py-2 text-sm rounded-full",
+	md: "px-6 py-3 text-base rounded-full",
+	lg: "px-8 py-3.5 text-lg rounded-full",
+};
+
+// Special handling for underline variant (no padding/rounding)
+const isUnderline = variant === "underline";
+const finalSizeStyles = isUnderline ? "" : sizeStyles[size];
+
+const linkClasses = [
+	baseStyles,
+	variantStyles[variant],
+	finalSizeStyles,
+	className,
+]
+	.filter(Boolean)
+	.join(" ");
+
+// External link attributes
+const externalAttrs = isExternal
+	? { target: "_blank", rel: "noopener noreferrer" }
+	: {};
+---
+
+<a href={href} class={linkClasses} {...externalAttrs} {...rest}>
+	<slot />
+</a>
+

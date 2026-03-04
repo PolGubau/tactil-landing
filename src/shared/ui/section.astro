@@ -1,0 +1,22 @@
+---
+/**
+ * Section Component - Primitive UI component for page sections
+ */
+
+import { sectionStyles } from "./styles";
+
+type Props = {
+	id?: string;
+	class?: string;
+	[key: string]: any;
+};
+
+const { id, class: className = "", ...rest } = Astro.props;
+
+const finalClasses = [sectionStyles, className].filter(Boolean).join(" ");
+---
+
+<section id={id} class={finalClasses} {...rest}>
+	<slot />
+</section>
+

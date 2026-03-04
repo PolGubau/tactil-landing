@@ -1,16 +1,17 @@
 ---
 import { t } from "~/shared/i18n/fn";
 import { T } from "~/shared/i18n/types";
+import Link from "~/shared/ui/link.astro";
 import Titles from "./titles.astro";
 const l = Astro.currentLocale;
 ---
 
-<article class="flex flex-col w-full gap-10 min-h-[60vh] sticky top-60 mt-50">
+<article class="flex flex-col w-full gap-10 mt-50">
   <Titles />
 
   <div class="flex flex-col gap-6 delayed-appearing mb-8">
     <p
-      class="max-w-xl balanced text-muted-foreground text-lg leading-relaxed"
+      class="max-w-md balanced text-muted-foreground text-lg leading-relaxed"
       set:html={t(l, "summary")}
     />
   </div>
@@ -18,35 +19,11 @@ const l = Astro.currentLocale;
   <div
     class="flex gap-6 items-center delayed-appearing max-md:text-sm flex-wrap"
   >
-    <a
-      href="#contacto"
-      class="bg-primary text-background px-8 py-3.5 rounded-lg font-semibold hover:brightness-95 active:scale-[0.98] transition-all shadow-md hover:shadow-lg"
-    >
-      {t(l, T.want_to_see_my_proposal)}
-    </a>
-    <a
-      href={"#portafolio"}
-      class="cursor-pointer px-6 py-3 border-2 border-border rounded-lg font-semibold hover:bg-muted transition-all"
-      >{t(l, T.see_examples)}
-    </a>
+    <Link href="#contact" variant="primary" size="lg">
+      {t(l, T.lets_talk)}
+    </Link>
+    <Link href="#portafolio" variant="underline">
+      {t(l, T.see_examples)}
+    </Link>
   </div>
 </article>
-
-<style>
-  article {
-    /* Create View Timeline */
-    view-timeline-name: --revealing-image;
-    view-timeline-axis: block;
-
-    /* Attach animation, linked to the  View Timeline */
-    animation: linear opacity-fade both;
-    animation-timeline: --revealing-image;
-
-    /* Tweak range when effect should run*/
-    /* only on exit */
-    animation-range: cover 8% cover 35%;
-    @media screen and (min-width: 640px) {
-      animation-range: cover 15% cover 50%;
-    }
-  }
-</style>

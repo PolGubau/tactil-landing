@@ -1,0 +1,47 @@
+---
+/**
+ * Select Component - Primitive UI component for select dropdowns
+ */
+
+import { inputBaseStyles, labelStyles } from "./styles";
+
+type Props = {
+	label?: string;
+	id: string;
+	name: string;
+	required?: boolean;
+	class?: string;
+	labelClass?: string;
+	[key: string]: any;
+};
+
+const {
+	label,
+	id,
+	name,
+	required = false,
+	class: className = "",
+	labelClass = "",
+	...rest
+} = Astro.props;
+
+const selectClasses = [inputBaseStyles, "cursor-pointer", className]
+	.filter(Boolean)
+	.join(" ");
+const labelClasses = [labelStyles, labelClass].filter(Boolean).join(" ");
+---
+
+<div class="flex flex-col gap-2">
+	{
+		label && (
+			<label for={id} class={labelClasses}>
+				{label}
+				{required && <span class="text-red-500">*</span>}
+			</label>
+		)
+	}
+	<select id={id} name={name} required={required} class={selectClasses} {...rest}>
+		<slot />
+	</select>
+</div>
+

@@ -10,6 +10,7 @@ export const en = {
 	ticketSubtitle:
 		"Burning money and time on websites that don't work <strong>is harder</strong>",
 	total: "Total",
+	lets_talk: "Let's talk",
 	popular: "Popular",
 	your_current_web_receipt: "Your current web receipt",
 	ticketFooter: "Identified? That's where we step in",

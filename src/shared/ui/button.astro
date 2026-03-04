@@ -1,0 +1,63 @@
+---
+/**
+ * Button Component - Primitive UI component for buttons
+ * Follows SOLID principles with single responsibility and open/closed principle
+ */
+
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
+export type ButtonSize = "sm" | "md" | "lg";
+
+type Props = {
+	variant?: ButtonVariant;
+	size?: ButtonSize;
+	class?: string;
+	type?: "button" | "submit" | "reset";
+	disabled?: boolean;
+	[key: string]: any; // Allow other HTML attributes
+};
+
+const {
+	variant = "primary",
+	size = "md",
+	class: className = "",
+	type = "button",
+	disabled = false,
+	...rest
+} = Astro.props;
+
+// Base styles - always applied
+const baseStyles =
+	"inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]";
+
+// Variant styles
+const variantStyles: Record<ButtonVariant, string> = {
+	primary:
+		"bg-primary text-background hover:brightness-95 shadow-md hover:shadow-lg focus:ring-primary",
+	secondary:
+		"bg-secondary text-background hover:brightness-95 shadow-md hover:shadow-lg focus:ring-secondary",
+	outline:
+		"border-2 border-border bg-transparent hover:bg-muted focus:ring-border",
+	ghost: "bg-transparent hover:bg-muted focus:ring-muted",
+};
+
+// Size styles
+const sizeStyles: Record<ButtonSize, string> = {
+	sm: "px-4 py-2 text-sm rounded-lg",
+	md: "px-6 py-3 text-base rounded-lg",
+	lg: "px-8 py-3.5 text-lg rounded-full",
+};
+
+const buttonClasses = [
+	baseStyles,
+	variantStyles[variant],
+	sizeStyles[size],
+	className,
+]
+	.filter(Boolean)
+	.join(" ");
+---
+
+<button type={type} class={buttonClasses} disabled={disabled} {...rest}>
+	<slot />
+</button>
+
